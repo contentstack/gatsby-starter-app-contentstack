@@ -1,4 +1,4 @@
-//Module dependency 
+// Module dependency
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -7,20 +7,20 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Gatsby Sample App`,
-    description: `This is a starter app build using Gatsby and Contentstack`,
+    description: `This is a sample app build using Gatsby and Contentstack`,
     author: `Contentstack`,
   },
   plugins: [
-    // `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `images`,
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
-    // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {
@@ -29,8 +29,10 @@ module.exports = {
     //     start_url: `/`,
     //     background_color: `#663399`,
     //     theme_color: `#663399`,
-    //     display: `minimal-ui`
+    //     display: `minimal-ui`,
+    //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
     //   },
+    // },
 
     {
       resolve: "gatsby-source-contentstack",

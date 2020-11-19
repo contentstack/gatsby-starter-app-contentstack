@@ -9,36 +9,36 @@ import ReactHtmlParser, {
 
 const queryLayout = () => {
   const data = useStaticQuery(graphql`
-  query  {
-    contentstackHeader {
-      title
-      navigation_menu {
-        label
-        page_reference {
-          url
-        }
-      }
-      logo {
-        url
+    query {
+      contentstackHeader {
         title
-      }
-    }
-    contentstackFooter {
-      title
-      social_share_title
-      social_share {
-        icon {
+        navigation_menu {
+          label
+          page_reference {
+            url
+          }
+        }
+        logo {
           url
           title
         }
-        link {
-          href
-          title
-        }
       }
-      copyright
+      contentstackFooter {
+        title
+        social_share_title
+        social_share {
+          icon {
+            url
+            title
+          }
+          link {
+            href
+            title
+          }
+        }
+        copyright
+      }
     }
-  }
   `)
   return data
 }
@@ -51,12 +51,13 @@ const Footer = () => {
         <div class="max-width flex">
           <div class="col-quarter">
             <Link to="/" className="logo-align" title="Contentstack">
-            <img
-              src={data.contentstackHeader.logo.url}
-              alt="demo"
-              width="50px"
-              height="50px"
-            /><span>{data.contentstackHeader.title}</span>
+              <img
+                src={data.contentstackHeader.logo.url}
+                alt="demo"
+                width="50px"
+                height="50px"
+              />
+              <span>{data.contentstackHeader.title}</span>
             </Link>
           </div>
           <div class="col-half">
@@ -98,7 +99,9 @@ const Footer = () => {
               </a>
             </div>
             <div class="copyright">
-            {data.contentstackFooter.copyright ?  ReactHtmlParser(data.contentstackFooter.copyright):""}
+              {data.contentstackFooter.copyright
+                ? ReactHtmlParser(data.contentstackFooter.copyright)
+                : ""}
             </div>
           </div>
         </div>

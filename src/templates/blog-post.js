@@ -9,7 +9,7 @@ import ReactHtmlParser, {
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const dateSetter=(params)=> {
+const dateSetter = params => {
   const date = new Date(params)
   const yy = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date)
   const mm = new Intl.DateTimeFormat("en", { month: "short" }).format(date)
