@@ -16,8 +16,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  //  console.log(result.data.allContentstackBlogPost.nodes[0]);
-  function createnewPage(path, comp, title) {
+  function createNewPage(path, comp, title) {
     createPage({
       path: `${path}`,
       component: comp,
@@ -27,6 +26,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   }
   result.data.allContentstackBlogPost.nodes.forEach(node => {
-    createnewPage("/blog" + node.url, blogPostTemplate, node.title)
+    createNewPage("/blog" + node.url, blogPostTemplate, node.title)
   })
 }
