@@ -44,12 +44,12 @@ const About = ({ data }) => (
         <div class="buckets padding-both">
           {data.allContentstackPage.nodes[0].page_components.map(index => {
             if (index.section !== null) {
-              return index.section.heading.map(i => {
+              return index.section.heading.map(index => {
                 return (
                   <div class="bucket">
                     <div class="inner">
-                      <h3>{i.title_h2}</h3>
-                      {ReactHtmlParser(i.description)}
+                      <h3>{index.title_h2}</h3>
+                      {ReactHtmlParser(index.description)}
                     </div>
                   </div>
                 )
