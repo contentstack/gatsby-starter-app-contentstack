@@ -18,21 +18,11 @@ const Section = ({ data }) => {
           <div className="bucket">
             <div className="inner">
               {data.section.image ? <img src={data.section.image.url} className={data.section.image_alignment === "Left" ? "left sectionImg" : "right sectionImg"} /> : ''}
-
-              {/* <img src="./Image(1).svg" className="sectionImg" /> */}
             </div>
           </div>
         </div>
       </div>
       {console.log('Section', data.section)}
-      {/* <div>
-        {data.section.title_h2 ? <h2>{data.section.title_h2}</h2> : ''}
-        {data.section.image ? <img src={data.section.image.url} className={data.section.image_alignment === "Left" ? "left" : "right"} /> : ''}
-        {data.section.description ? <span>{data.section.description}</span> : ''}
-        {(data.section.call_to_action.title && data.section.call_to_action.href) ?
-          <a href={data.section.call_to_action.href}>{data.section.call_to_action.title}</a>
-          : ''}
-      </div> */}
     </>
   )
 }

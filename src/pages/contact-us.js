@@ -3,12 +3,25 @@ import { Link, graphql } from "gatsby";
 import ReactHtmlParser from "react-html-parser";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import SectionWithEmbedObject from "../components/sectionWithEmbedObject";
 
 const Contact = ({ data }) => (
   <Layout>
+    {console.log('contact', data)}
     <SEO title="Contact" />
     <main class="contact-us">
       <div class="max-width flex padding-both tall">
+      {data.allContentstackPage.nodes[0].page_components ?
+        data.allContentstackPage.nodes[0].page_components.map((component, index) => {
+          if (component['section_with_embed_object']) {
+            return (
+              <SectionWithEmbedObject data={component} />
+            )
+          }
+        })
+        : ''
+      }
+
         <div class="col-half">
           <h2>{data.allContentstackPage.nodes[0].title}</h2>
           {/* {ReactHtmlParser(
@@ -29,9 +42,9 @@ const Contact = ({ data }) => (
             })}
           </div> */}
         </div>
-        <div class="col-half">
+        {/* <div class="col-half">
           <div class="contact-form"></div>
-        </div>
+        </div> */}
       </div>
     </main>
   </Layout>

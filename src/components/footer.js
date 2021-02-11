@@ -80,7 +80,6 @@ const Footer = () => {
                 return (
                   <a href={social.link.href} title={social.link.title.toLowerCase()} key={index}>
                     <span className="fa-1x fa-stack">
-                      {/* <i className="fa fa-circle fa-stack-2x"></i> */}
                       <i className={"fa fa-stack-1x fa-inverse fa-" + social.link.title.toLowerCase()}> </i>
                     </span>
                   </a>
