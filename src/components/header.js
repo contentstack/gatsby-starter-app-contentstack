@@ -6,28 +6,17 @@ const queryHeader = () => {
     query {
       contentstackHeader {
         title
+        uid
+        logo {
+          title
+          url
+        }
+        header_color
         navigation_menu {
           label
           page_reference {
-            url
-          }
-        }
-        logo {
-          url
-          title
-        }
-      }
-      contentstackFooter {
-        title
-        social_share_title
-        social_share {
-          icon {
-            url
             title
-          }
-          link {
-            href
-            title
+            url
           }
         }
       }
@@ -37,29 +26,27 @@ const queryHeader = () => {
 }
 
 const Header = () => {
-  let data = queryHeader()
+  let data = queryHeader();
   return (
     <>
       <header>
+        <div className="note-div"><p className="note-display">To Our Community: Please read this important update.</p></div>
         <div className="max-width">
           <div className="wrapper-logo">
-            <Link to="/" className="logo-align" title="Contentstack">
+            <Link to="/" className="logo-tag" title="Contentstack">
               <img
                 className="logo"
                 src={data.contentstackHeader.logo.url}
-                alt="logo"
-                width="50px"
-                height="50px"
+                alt="Contentstack logo"
               />
-              <span>{data.contentstackHeader.title}</span>
             </Link>
           </div>
           <nav>
-            <ul>
-              {data.contentstackHeader.navigation_menu.map(index => {
+            <ul className="nav-ul">
+              {data.contentstackHeader.navigation_menu.map((menu, index) => {
                 return (
-                  <li>
-                    <Link to={index.page_reference[0].url}>{index.label}</Link>
+                  <li className="nav-li" key={index}>
+                    <Link to={menu.page_reference[0].url}>{menu.label}</Link>
                   </li>
                 )
               })}

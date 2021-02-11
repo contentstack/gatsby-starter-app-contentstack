@@ -1,39 +1,36 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
-import ReactHtmlParser, {
-  processNodes,
-  convertNodeToElement,
-  htmlparser2,
-} from "react-html-parser"
+import ReactHtmlParser from "react-html-parser"
 
 const queryLayout = () => {
   const data = useStaticQuery(graphql`
     query {
-      contentstackHeader {
+      contentstackFooter {
         title
-        navigation_menu {
-          label
-          page_reference {
-            url
-          }
-        }
+        uid
+        footer_color
         logo {
           url
           title
         }
-      }
-      contentstackFooter {
-        title
-        social_share_title
-        social_share {
-          icon {
-            url
-            title
-          }
+        navigation {
+          navigation_title
           link {
             href
             title
+          }
+        }
+        social {
+          social_share_title
+          social_share {
+            link {
+              href
+              title
+            }
+            icon {
+              url
+              title
+            }
           }
         }
         copyright
@@ -44,31 +41,31 @@ const queryLayout = () => {
 }
 
 const Footer = () => {
-  let data = queryLayout()
+  let data = queryLayout();
+  console.log('data foo', data);
   return (
     <>
       <footer>
-        <div class="max-width flex">
-          <div class="col-quarter">
-            <Link to="/" className="logo-align" title="Contentstack">
+        <div className="max-width footer-div">
+          <div className="col-quarter">
+            <Link to="/" className="logo-tag">
               <img
-                src={data.contentstackHeader.logo.url}
-                alt="demo"
-                width="50px"
-                height="50px"
+                src={data.contentstackFooter.logo.url}
+                alt="contentstack logo"
+                title="Contentstack"
+                className="logo footer-logo"
               />
-              <span>{data.contentstackHeader.title}</span>
             </Link>
           </div>
-          <div class="col-half">
+          <div className="col-half">
             <nav>
-              <ul>
-                {data.contentstackHeader.navigation_menu.map(index => {
+              <ul className="nav-ul">
+                {data.contentstackFooter.navigation.link.map((menu, index) => {
                   return (
                     <>
-                      <li>
-                        <Link to={index.page_reference[0].url}>
-                          {index.label}
+                      <li className="nav-li" key={index}>
+                        <Link to={menu.href}>
+                          {menu.title}
                         </Link>
                       </li>
                     </>
@@ -77,28 +74,20 @@ const Footer = () => {
               </ul>
             </nav>
           </div>
-          <div class="col-quarter">
-            <div class="social-nav">
-              <a href="https://facebook.com" title="facebook">
-                <span class="fa-1x fa-stack">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-stack-1x fa-inverse fa-facebook"> </i>
-                </span>
-              </a>
-              <a href="https://twitter.com" title="twitter">
-                <span class="fa-1x fa-stack">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-stack-1x fa-inverse fa-twitter"> </i>
-                </span>
-              </a>
-              <a href="https://linkedin.com" title="linkedin">
-                <span class="fa-1x fa-stack">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"> </i>
-                </span>
-              </a>
+          <div className="col-quarter social-link">
+            <div className="social-nav">
+              {data.contentstackFooter.social.social_share.map((social, index) => {
+                return (
+                  <a href={social.link.href} title={social.link.title.toLowerCase()} key={index}>
+                    <span className="fa-1x fa-stack">
+                      {/* <i className="fa fa-circle fa-stack-2x"></i> */}
+                      <i className={"fa fa-stack-1x fa-inverse fa-" + social.link.title.toLowerCase()}> </i>
+                    </span>
+                  </a>
+                )
+              })}
             </div>
-            <div class="copyright">
+            <div className="copyright">
               {data.contentstackFooter.copyright
                 ? ReactHtmlParser(data.contentstackFooter.copyright)
                 : ""}
