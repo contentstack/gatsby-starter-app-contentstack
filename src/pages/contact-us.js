@@ -9,44 +9,16 @@ const Contact = ({ data }) => (
   <Layout>
     {console.log('contact', data)}
     <SEO title="Contact" />
-    <main class="contact-us">
-      <div class="max-width flex padding-both tall">
-      {data.allContentstackPage.nodes[0].page_components ?
-        data.allContentstackPage.nodes[0].page_components.map((component, index) => {
-          if (component['section_with_embed_object']) {
-            return (
-              <SectionWithEmbedObject data={component} />
-            )
-          }
-        })
-        : ''
-      }
-
-        <div class="col-half">
-          <h2>{data.allContentstackPage.nodes[0].title}</h2>
-          {/* {ReactHtmlParser(
-            data.allContentstackPage.nodes[0].page_components[0].rich_text.rte
-          )}
-          <div class="address-block padding-bottom">
-            <h3>H3 Content Headline</h3>
-            {data.allContentstackPage.nodes[0].page_components.map(index => {
-              if (index.contact_details !== null) {
-                return (
-                  <>
-                    <p>{index.contact_details.address}</p>
-                    <p>{index.contact_details.phone}</p>
-                    <p>{index.contact_details.email}</p>
-                  </>
-                )
-              }
-            })}
-          </div> */}
-        </div>
-        {/* <div class="col-half">
-          <div class="contact-form"></div>
-        </div> */}
-      </div>
-    </main>
+    {data.allContentstackPage.nodes[0].page_components ?
+      data.allContentstackPage.nodes[0].page_components.map((component, index) => {
+        if (component['section_with_embed_object']) {
+          return (
+            <SectionWithEmbedObject data={component} />
+          )
+        }
+      })
+      : ''
+    }
   </Layout>
 )
 

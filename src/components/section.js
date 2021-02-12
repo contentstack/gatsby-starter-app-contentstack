@@ -7,7 +7,7 @@ const Section = ({ data }) => {
   return (
     <>
       <div className="max-width-section">
-        <div className="top-section padding-top">
+        <div className={data.section.image_alignment === "Left" ? "top-section padding-top" : "top-section padding-top  section-left"}>
           {data.section.title_h2 ? <h2 className="section-title">{data.section.title_h2}</h2> : ''}
           {data.section.description ? <p className="section-description">{data.section.description}</p> : ''}
           {(data.section.call_to_action.title && data.section.call_to_action.href) ?
@@ -17,7 +17,7 @@ const Section = ({ data }) => {
         <div className="buckets padding-both">
           <div className="bucket">
             <div className="inner">
-              {data.section.image ? <img src={data.section.image.url} className={data.section.image_alignment === "Left" ? "left sectionImg" : "right sectionImg"} /> : ''}
+              {data.section.image ? <img src={data.section.image.url} className={data.section.image_alignment === "Left" ? "sectionImg" : "sectionImg section-right"} /> : ''}
             </div>
           </div>
         </div>

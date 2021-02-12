@@ -751,8 +751,10 @@ footer .fa-stack-1x {
 
 .blog-column-right .blog-lib h4 {
   position: static;
-  /* width: 140px;
-  height: 16px; */
+  width: 140px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;

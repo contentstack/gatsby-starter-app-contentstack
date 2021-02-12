@@ -68,15 +68,7 @@ const Blog = ({ data }) => (
           })}
         </div>
         <div class="blog-column-right">
-        {data.allContentstackPage.nodes[0].page_components
-        ? data.allContentstackPage.nodes[0].page_components.map(
-            (component, index) => {
-              if (component["from_blog"]) {
-                return <FromBlog data={component} /> 
-              }
-            }
-          )
-        : ""}
+        <FromBlog/>
         </div>
       </div>
     </main>
@@ -203,18 +195,21 @@ export const pageQuery = graphql`
       }
     }
 
-    allContentstackBlogPost {
-      nodes {
-        title
-        url
-        uid
-        body
-        featured_image {
-          title
+   
+      allContentstackBlogPost(filter: {is_archived: {eq: false}}) {
+        nodes {
           url
+          title
+          uid
+          featured_image {
+            url
+          }
+          body
         }
       }
-    }
+    
+    
+    
   }
 `
 
