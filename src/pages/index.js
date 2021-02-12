@@ -1,109 +1,37 @@
-import React from "react";
-import { Link } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import Hero from "../components/hero";
-import Section from "../components/section";
-import SectionBucket from "../components/sectionBucket";
-import BlogSection from "../components/blogSection";
-import CardSection from "../components/cardSection";
+import React from "react"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Hero from "../components/hero"
+import Section from "../components/section"
+import SectionBucket from "../components/sectionBucket"
+import BlogSection from "../components/blogSection"
+import CardSection from "../components/cardSection"
 
 const Home = ({ data }) => (
   <Layout>
-    {console.log('EEE', data)}
+    {console.log("EEE", data)}
     <SEO title="Home" />
-    <main>
-      {data.allContentstackPage.nodes[0].page_components ?
-        data.allContentstackPage.nodes[0].page_components.map((component, index) => {
-          if (component['hero_banner']) {
-            return (
-              <Hero data={component} />
-            )
-          }
-          if (component['section']) {
-            return (
-              <Section data={component} />
-            )
-          }
-          if (component['section_with_buckets']) {
-            return (
-              <SectionBucket data={component} />
-            )
-          }
-          if (component['from_blog']) {
-            return (
-              <BlogSection data={component} />
-            )
-
-          }
-          if (component['section_with_cards']) {
-            return (
-              <CardSection data={component} />
-            )
-          }
-        })
-        : ''
-      }
-
-      {/* <div class="hero">
-        <div class="max-width">
-          <div class="content">
-            <h1>{data.allContentstackPage.nodes[0].title}</h1>
-            <p>P1 Paragraph text goes here. Intro statement.</p>
-          </div>
-        </div>
-      </div> */}
-      {/* <div class="max-width">
-        <div class="top-section padding-top">
-          <h2>H2 Headline goes here</h2>
-          <p>P1 Paragraph text goes here. Intro statement.</p>
-        </div>
-        <div class="buckets padding-both">
-          <div class="bucket">
-            <div class="inner">
-              <h3>H3 Content Headline</h3>
-              <p>
-                P2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea.
-              </p>
-            </div>
-          </div>
-          <div class="bucket">
-            <div class="inner">
-              <h3>H3 Content Headline</h3>
-              <p>
-                P2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea.
-              </p>
-            </div>
-          </div>
-          <div class="bucket">
-            <div class="inner">
-              <h3>H3 Content Headline</h3>
-              <p>
-                P2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea.
-              </p>
-            </div>
-          </div>
-          <div class="related-links">
-            <h3>Related Pages</h3>
-            <p>
-              <a href="/blog.html">Read Our Blog</a>
-            </p>
-            <p>
-              <a href="/about.html">About Us</a>
-            </p>
-          </div>
-        </div>
-      </div> */}
-    </main>
+      {data.allContentstackPage.nodes[0].page_components
+        ? data.allContentstackPage.nodes[0].page_components.map(
+            (component, index) => {
+              if (component["hero_banner"]) {
+                return <Hero data={component} key={index} />
+              }
+              if (component["section"]) {
+                return <Section data={component} key={index} />
+              }
+              if (component["section_with_buckets"]) {
+                return <SectionBucket data={component} key={index} />
+              }
+              if (component["from_blog"]) {
+                return <BlogSection data={component} key={index} />
+              }
+              if (component["section_with_cards"]) {
+                return <CardSection data={component} key={index} />
+              }
+            }
+          )
+        : ""}
   </Layout>
 )
 

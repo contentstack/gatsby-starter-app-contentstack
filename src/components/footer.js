@@ -41,8 +41,8 @@ const queryLayout = () => {
 }
 
 const Footer = () => {
-  let data = queryLayout();
-  console.log('data foo', data);
+  let data = queryLayout()
+  console.log("data foo", data)
   return (
     <>
       <footer>
@@ -62,13 +62,9 @@ const Footer = () => {
               <ul className="nav-ul">
                 {data.contentstackFooter.navigation.link.map((menu, index) => {
                   return (
-                    <>
-                      <li className="nav-li" key={index}>
-                        <Link to={menu.href}>
-                          {menu.title}
-                        </Link>
-                      </li>
-                    </>
+                    <li className="nav-li" key={index}>
+                      <Link to={menu.href}>{menu.title}</Link>
+                    </li>
                   )
                 })}
               </ul>
@@ -76,21 +72,34 @@ const Footer = () => {
           </div>
           <div className="col-quarter social-link">
             <div className="social-nav">
-              {data.contentstackFooter.social.social_share.map((social, index) => {
-                return (
-                  <a href={social.link.href} title={social.link.title.toLowerCase()} key={index}>
-                    <span className="fa-1x fa-stack">
-                      <i className={"fa fa-stack-1x fa-inverse fa-" + social.link.title.toLowerCase()}> </i>
-                    </span>
-                  </a>
-                )
-              })}
+              {data.contentstackFooter.social.social_share.map(
+                (social, index) => {
+                  return (
+                    <a
+                      href={social.link.href}
+                      title={social.link.title.toLowerCase()}
+                      key={index}
+                    >
+                      <span className="fa-1x fa-stack">
+                        <i
+                          className={
+                            "fa fa-stack-1x fa-inverse fa-" +
+                            social.link.title.toLowerCase()
+                          }
+                        >
+                          {" "}
+                        </i>
+                      </span>
+                    </a>
+                  )
+                }
+              )}
             </div>
-            <div className="copyright">
-              {data.contentstackFooter.copyright
-                ? ReactHtmlParser(data.contentstackFooter.copyright)
-                : ""}
-            </div>
+          </div>
+          <div className="copyright">
+            {data.contentstackFooter.copyright
+              ? ReactHtmlParser(data.contentstackFooter.copyright)
+              : ""}
           </div>
         </div>
       </footer>

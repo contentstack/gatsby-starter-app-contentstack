@@ -1,24 +1,23 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import ReactHtmlParser from "react-html-parser";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import SectionWithEmbedObject from "../components/sectionWithEmbedObject";
+import React from "react"
+import { Link, graphql } from "gatsby"
+import ReactHtmlParser from "react-html-parser"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import SectionWithEmbedObject from "../components/sectionWithEmbedObject"
 
 const Contact = ({ data }) => (
   <Layout>
-    {console.log('contact', data)}
+    {console.log("contact", data)}
     <SEO title="Contact" />
-    {data.allContentstackPage.nodes[0].page_components ?
-      data.allContentstackPage.nodes[0].page_components.map((component, index) => {
-        if (component['section_with_embed_object']) {
-          return (
-            <SectionWithEmbedObject data={component} />
-          )
-        }
-      })
-      : ''
-    }
+    {data.allContentstackPage.nodes[0].page_components
+      ? data.allContentstackPage.nodes[0].page_components.map(
+          (component, index) => {
+            if (component["section_with_embed_object"]) {
+              return <SectionWithEmbedObject data={component} />
+            }
+          }
+        )
+      : ""}
   </Layout>
 )
 

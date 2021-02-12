@@ -30,7 +30,6 @@ const fromBlog = () => {
             <a href={index.url}>
               <div>
                 <h4>{index.title}</h4>
-
                 {ReactHtmlParser(index.body.slice(0, 80))}
               </div>
             </a>

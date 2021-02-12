@@ -26,11 +26,15 @@ const queryHeader = () => {
 }
 
 const Header = () => {
-  let data = queryHeader();
+  let data = queryHeader()
   return (
     <>
       <header>
-        <div className="note-div"><p className="note-display">To Our Community: Please read this important update.</p></div>
+        <div className="note-div">
+          <p className="note-display">
+            To Our Community: Please read this important update.
+          </p>
+        </div>
         <div className="max-width">
           <div className="wrapper-logo">
             <Link to="/" className="logo-tag" title="Contentstack">

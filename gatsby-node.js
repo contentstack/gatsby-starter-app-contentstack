@@ -25,6 +25,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   }
   result.data.allContentstackBlogPost.nodes.forEach(node => {
-    createNewPage("/blog" + node.url, blogPostTemplate, node.title)
+    createNewPage(node.url, blogPostTemplate, node.title)
   })
 }
