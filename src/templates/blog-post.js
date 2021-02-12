@@ -8,6 +8,8 @@ import ReactHtmlParser, {
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import FromBlog from "../components/fromBlog"
+import HeroBanner from "../components/blogBanner"
 
 const dateSetter = params => {
   const date = new Date(params)
@@ -18,56 +20,27 @@ const dateSetter = params => {
 }
 
 export default function blogPost({ data }) {
+  console.log("S",data)
   return (
     <Layout>
       <SEO title="Home" />
-      <main class="blog-post">
-        <div class="max-width flex padding-both tall">
-          <div class="col-quarter">
-            <div class="page-thumb padding-bottom">
-              <img src="https://via.placeholder.com/200x140" alt="Blog Title" />
-            </div>
-          </div>
-          <div class="col-half">
-            <h2>
+       <HeroBanner/>
+        <div class="blog-container">
+          <div class="blog-detail">
+            <h1>
               {data.contentstackBlogPost.title
                 ? data.contentstackBlogPost.title
                 : ""}
-            </h2>
-            <p class="blog-meta">
-              <span class="date">
-                {dateSetter(data.contentstackBlogPost.date)
-                  ? dateSetter(data.contentstackBlogPost.date)
-                  : ""}
-              </span>
-              <span class="author">
-                {data.contentstackBlogPost.author[0].title
-                  ? data.contentstackBlogPost.author[0].title
-                  : ""}
-              </span>
-            </p>
-            <div class="blog-content">
-              {ReactHtmlParser(data.contentstackBlogPost.body)
-                ? ReactHtmlParser(data.contentstackBlogPost.body)
-                : ""}
-            </div>
+            </h1>
+            <p>{ReactHtmlParser(data.contentstackBlogPost.body)}</p>
           </div>
-          <div class="col-quarter">
-            <div class="padding-left">
-              <h3>Related Blogs</h3>
-              {data.contentstackBlogPost.related_post.map(index => {
-                if (index != null) {
-                  return (
-                    <p>
-                      <Link href={`/blog${index.url}`}>{index.title}</Link>
-                    </p>
-                  )
-                }
-              })}
+          <div class="blog-column-right">
+            <div class="related-post">
+              <h1>Related Post</h1>
+              <FromBlog />
             </div>
           </div>
         </div>
-      </main>
     </Layout>
   )
 }

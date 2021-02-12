@@ -2,19 +2,51 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import ReactHtmlParser from "react-html-parser"
 
-const Hero = ({ data }) => {
+const queryBlogBanner = () => {
+  const data = useStaticQuery(graphql`
+    query myQuery {
+      allContentstackPage(filter: { title: { eq: "Blog" } }) {
+        nodes {
+          title
+          page_components {
+            hero_banner {
+              banner_title
+              banner_description
+            }
+          }
+        }
+      }
+    }
+  `)
+  return data
+}
+
+const blogHero = () => {
+  let data = queryBlogBanner()
   return (
     <>
       <div className="blog-banner">
         <div className="blog-content">
-          {data.hero_banner.banner_title ? (
-            <h1 className="blog-head-title">{data.hero_banner.banner_title}</h1>
+          {data.allContentstackPage.nodes[0].page_components[0].hero_banner
+            .banner_title ? (
+            <h1 className="blog-head-title">
+              {
+                data.allContentstackPage.nodes[0].page_components[0].hero_banner
+                  .banner_title
+              }
+            </h1>
           ) : (
             ""
           )}
 
-          {data.hero_banner.banner_description ? (
-            <p className="blog-head-desc">{data.hero_banner.banner_description}</p>
+          {data.allContentstackPage.nodes[0].page_components[0].hero_banner
+            .banner_description ? (
+            <p className="blog-head-desc">
+              {
+                data.allContentstackPage.nodes[0].page_components[0].hero_banner
+                  .banner_description
+              }
+            </p>
           ) : (
             ""
           )}
@@ -24,4 +56,4 @@ const Hero = ({ data }) => {
   )
 }
 
-export default Hero
+export default blogHero

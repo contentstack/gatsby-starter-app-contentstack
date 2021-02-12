@@ -4,74 +4,58 @@ import ReactHtmlParser from "react-html-parser"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroBanner from "../components/blogBanner"
-import FromBlog  from '../components/fromBlog'
-
-function dateSetter(params) {
-  const date = new Date(params)
-  const yy = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date)
-  const mm = new Intl.DateTimeFormat("en", { month: "short" }).format(date)
-  const dd = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date)
-  return `${mm}-${dd}-${yy}`
-}
+import FromBlog from "../components/fromBlog"
 
 const Blog = ({ data }) => (
   <Layout>
-    {console.log("blog", data)}
     <SEO title="Blog" />
-    <main>
-      {data.allContentstackPage.nodes[0].page_components
-        ? data.allContentstackPage.nodes[0].page_components.map(
-            (component, index) => {
-              if (component["hero_banner"]) {
-                return <HeroBanner data={component} />
-              }
-            }
-          )
-        : ""}
-      <div className="blog-container">
-        <div className="blog-column-left">
-          {data.allContentstackBlogPost.nodes.map((blog, index) => {
-            return (
-              <>
-                <a href={blog.url} key={index}>
-                  <div class="blog-list">
-                    {blog.featured_image ? (
-                      <img class="blog-img" src={blog.featured_image.url} />
+    <HeroBanner />
+    <div className="blog-container">
+      <div className="blog-column-left">
+        {data.allContentstackBlogPost.nodes.map((blog, index) => {
+          return (
+            <>
+              <a href={blog.url} key={index}>
+                <div class="blog-list">
+                  {blog.featured_image ? (
+                    <img class="blog-img" src={blog.featured_image.url} />
+                  ) : (
+                    ""
+                  )}
+                  <div class="blog-content">
+                    {blog.title ? (
+                      <h2 class="blog-content-h2">{blog.title}</h2>
                     ) : (
                       ""
                     )}
-                    <div class="blog-content">
-                      {blog.title ? (
-                        <h2 class="blog-content-h2">{blog.title}</h2>
-                      ) : (
-                        ""
-                      )}
-                      {blog.body ? (
-                        <p class="blog-content-p">
-                          {ReactHtmlParser(blog.body.slice(0,300))}
-                        </p>
-                      ) : (
-                        ""
-                      )}
-                      {blog.url ? (
-                        <a class="blog-list-cta" href={blog.url}>
-                          Read More..
-                        </a>
-                      ) : (
-                        ""
-                      )}
-                    </div>
+                    {blog.body ? (
+                      <p class="blog-content-p">
+                        {ReactHtmlParser(blog.body.slice(0, 300))}
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                    {blog.url ? (
+                      <a class="blog-list-cta" href={blog.url}>
+                        Read More..
+                      </a>
+                    ) : (
+                      ""
+                    )}
                   </div>
-                </a>
-              </>
-            )
-          })}
-        </div>
-        <div class="blog-column-right">
-        <FromBlog/>
+                </div>
+              </a>
+            </>
+          )
+        })}
+      </div>
+      <div class="blog-column-right">
+        <div class="blog-lib">
+          <h1>Archived Blogs</h1>
+          <FromBlog />
         </div>
       </div>
-    </main>
+    </div>
   </Layout>
 )
 
@@ -104,7 +88,6 @@ export const pageQuery = graphql`
               featured_image {
                 title
                 url
-                
               }
               body
               author {
@@ -196,23 +179,18 @@ export const pageQuery = graphql`
       }
     }
 
-   
-      allContentstackBlogPost(filter: {is_archived: {eq: false}}) {
-        nodes {
+    allContentstackBlogPost(filter: { is_archived: { eq: false } }) {
+      nodes {
+        url
+        title
+        uid
+        featured_image {
           url
-          title
-          uid
-          featured_image {
-            url
-          }
-          body
         }
+        body
       }
-    
-    
-    
+    }
   }
 `
 
 export default Blog
-

@@ -7,7 +7,6 @@ import SectionWithEmbedObject from "../components/sectionWithEmbedObject"
 
 const Contact = ({ data }) => (
   <Layout>
-    {console.log("contact", data)}
     <SEO title="Contact" />
     {data.allContentstackPage.nodes[0].page_components
       ? data.allContentstackPage.nodes[0].page_components.map(

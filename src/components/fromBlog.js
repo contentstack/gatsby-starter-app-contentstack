@@ -19,11 +19,8 @@ const queryArchived = () => {
 
 const fromBlog = () => {
   let data = queryArchived()
-
-  console.log("new", data)
   return (
-    <div class="blog-lib">
-      <h1>Archived Blogs</h1>
+    <>
       {data.allContentstackBlogPost.nodes.map(index => {
         return (
           <>
@@ -36,7 +33,7 @@ const fromBlog = () => {
           </>
         )
       })}
-    </div>
+    </>
   )
 }
 

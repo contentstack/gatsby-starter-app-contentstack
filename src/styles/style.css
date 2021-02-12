@@ -779,7 +779,6 @@ footer .fa-stack-1x {
 
 .blog-container .blog-detail {
   width: 690px;
-  height: 230px;
   position: relative;
   left: 70px;
 }
@@ -787,7 +786,6 @@ footer .fa-stack-1x {
 .blog-container .blog-detail h1 {
   position: static;
   width: 690px;
-  height: 56px;
   left: 0px;
   right: 0px;
   font-weight: bold;
@@ -814,7 +812,7 @@ footer .fa-stack-1x {
 .blog-column-right .related-post {
   position: absolute;
   right: 100px;
-  top: -234px;
+  top: -702px;
   max-width: 364px;
 }
 
@@ -835,12 +833,9 @@ footer .fa-stack-1x {
 
 .blog-column-right .related-post h4 {
   position: static;
-  width: 140px;
-  height: 24px;
+  width: 255px;
   left: 0px;
   top: 0px;
-  font-family: Inter;
-  font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;

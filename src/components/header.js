@@ -1,6 +1,6 @@
-import { Link, graphql, useStaticQuery } from "gatsby";
-import React from "react";
-import ReactHtmlParser from "react-html-parser";
+import { Link, graphql, useStaticQuery } from "gatsby"
+import React from "react"
+import ReactHtmlParser from "react-html-parser"
 
 const queryHeader = () => {
   const data = useStaticQuery(graphql`
@@ -35,11 +35,15 @@ const Header = () => {
   return (
     <>
       <header>
-        {data.contentstackHeader.notification_bar.show_announcement ?
+        {data.contentstackHeader.notification_bar.show_announcement ? (
           <div className="note-div">
-            {ReactHtmlParser(data.contentstackHeader.notification_bar.announcement_text)}
+            {ReactHtmlParser(
+              data.contentstackHeader.notification_bar.announcement_text
+            )}
           </div>
-          : ''}
+        ) : (
+          ""
+        )}
         <div className="max-width">
           <div className="wrapper-logo">
             <Link to="/" className="logo-tag" title="Contentstack">
