@@ -1,9 +1,9 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import ReactHtmlParser from "react-html-parser";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import Hero from "../components/hero";
+import React from "react"
+import { Link, graphql } from "gatsby"
+import ReactHtmlParser from "react-html-parser"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Hero from "../components/hero"
 
 function dateSetter(params) {
   const date = new Date(params)
@@ -15,27 +15,26 @@ function dateSetter(params) {
 
 const Blog = ({ data }) => (
   <Layout>
-    {console.log('blog', data)}
+    {console.log("blog", data)}
     <SEO title="Blog" />
     <main>
-      {data.allContentstackPage.nodes[0].page_components ?
-        data.allContentstackPage.nodes[0].page_components.map((component, index) => {
-          if (component['hero_banner']) {
-            return (
-              <Hero data={component} />
-            )
-          }
-        })
-        : ''
-      }
+      {data.allContentstackPage.nodes[0].page_components
+        ? data.allContentstackPage.nodes[0].page_components.map(
+            (component, index) => {
+              if (component["hero_banner"]) {
+                return <Hero data={component} />
+              }
+            }
+          )
+        : ""}
 
       {data.allContentstackBlogPost.nodes.map((blog, index) => {
         return (
           <div key={index}>
-            {blog.featured_image ? <img src={blog.featured_image.url} /> : ''}
-            {blog.title ? <h2>{blog.title}</h2> : ''}
-            {blog.body ? <p>{ReactHtmlParser(blog.body)}</p> : ''}
-            {blog.url ? <a href={blog.url}>Read More</a> : ''}
+            {blog.featured_image ? <img src={blog.featured_image.url} /> : ""}
+            {blog.title ? <h2>{blog.title}</h2> : ""}
+            {blog.body ? <p>{ReactHtmlParser(blog.body)}</p> : ""}
+            {blog.url ? <a href={blog.url}>Read More</a> : ""}
           </div>
         )
       })}
@@ -236,7 +235,6 @@ export const pageQuery = graphql`
 `
 
 export default Blog
-
 
 // export const pageQuery = graphql`
 //   query {

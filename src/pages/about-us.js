@@ -1,47 +1,38 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import ReactHtmlParser from "react-html-parser";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import Hero from "../components/hero";
-import Section from "../components/section";
-import SectionBucket from "../components/sectionBucket";
-import TeamSection from "../components/teamSection";
+import React from "react"
+import { Link, graphql } from "gatsby"
+import ReactHtmlParser from "react-html-parser"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Hero from "../components/hero"
+import Section from "../components/section"
+import SectionBucket from "../components/sectionBucket"
+import TeamSection from "../components/teamSection"
 
 const About = ({ data }) => (
   <Layout>
     <SEO title="About" />
-    {console.log('About', data)}
-    <main>
-      {data.allContentstackPage.nodes[0].page_components ?
-        data.allContentstackPage.nodes[0].page_components.map((component, index) => {
-          if (component['hero_banner']) {
-            return (
-              <Hero data={component} />
-            )
-          }
-          if (component['section']) {
-            return (
-              <Section data={component} />
-            )
-          }
-          if (component['section_with_buckets']) {
-            return (
-              <SectionBucket data={component} />
-            )
-          }
-          if (component['our_team']) {
-            return (
-              <TeamSection data={component} />
-            )
+    {console.log("About", data)}
 
+    {data.allContentstackPage.nodes[0].page_components
+      ? data.allContentstackPage.nodes[0].page_components.map(
+          (component, index) => {
+            if (component["hero_banner"]) {
+              return <Hero data={component} />
+            }
+            if (component["section"]) {
+              return <Section data={component} />
+            }
+            if (component["section_with_buckets"]) {
+              return <SectionBucket data={component} />
+            }
+            if (component["our_team"]) {
+              return <TeamSection data={component} />
+            }
           }
-        })
-        : ''
-      }
+        )
+      : ""}
 
-
-      {/* <div
+    {/* <div
         class="hero short"
         style={{
           background: `url(${
@@ -98,7 +89,6 @@ const About = ({ data }) => (
           </div>
         </div>
       </div> */}
-    </main>
   </Layout>
 )
 

@@ -82,10 +82,10 @@ body a:hover {
 .thirdBtn {
   width: 107px;
   height: 42px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 2px;
   border: none;
-  color: #715CDD;
+  color: #715cdd;
   font-weight: bold;
   font-size: 14px;
   line-height: 18px;
@@ -97,25 +97,25 @@ body a:hover {
   padding: 12px 18px;
   width: 159px;
   height: 42px;
-  background: #715CDD;
+  background: #715cdd;
   border-radius: 2px;
   font-weight: bold;
   line-height: 18px;
   letter-spacing: 0.3px;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
 }
 
 .secondary-btn {
-  background: #FFFFFF;
+  background: #ffffff;
   justify-content: center;
   align-items: center;
-  border: 1px solid #715CDD;
+  border: 1px solid #715cdd;
   box-sizing: border-box;
   border-radius: 2px;
   width: 211px;
   height: 42px;
-  color: #715CDD;
+  color: #715cdd;
   font-weight: bold;
   font-size: 14px;
   line-height: 18px;
@@ -164,7 +164,8 @@ nav ul li a {
   font-size: normal;
 }
 
-.top-section h2, .top-section p {
+.top-section h2,
+.top-section p {
   margin: 6px 0;
   padding: 0;
 }
@@ -288,7 +289,7 @@ header nav li a.active {
 footer {
   width: 100%;
   height: 157px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .footer-div {
@@ -338,10 +339,12 @@ footer .fa-stack-1x {
     display: -ms-flexbox;
     display: flex;
   }
-  footer nav, footer .social-nav {
+  footer nav,
+  footer .social-nav {
     padding-top: 12px;
   }
-  footer .social-nav, footer .copyright {
+  footer .social-nav,
+  footer .copyright {
     text-align: right;
   }
   footer .copyright {
@@ -352,7 +355,7 @@ footer .fa-stack-1x {
 
 .hero {
   height: 670px;
-  background: linear-gradient(90deg, #674FE5 0%, #BFCCFF 100%);
+  background: linear-gradient(90deg, #674fe5 0%, #bfccff 100%);
 }
 
 .hero .max-width {
@@ -638,9 +641,9 @@ footer .fa-stack-1x {
   font-size: 14px;
   line-height: 17px;
   align-items: center;
-  color: #715CDD;
+  color: #715cdd;
 }
-.blog-banner{
+.blog-banner {
   position: relative;
   top: 30px;
 }
@@ -671,7 +674,7 @@ footer .fa-stack-1x {
   line-height: 22px;
   text-align: center;
   letter-spacing: 0.3px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Blog list section */
@@ -717,7 +720,7 @@ footer .fa-stack-1x {
 
 .blog-column-left .blog-content p {
   line-height: 21px;
-  color: #737B7D;
+  color: #737b7d;
 }
 
 .blog-column-left {
@@ -880,7 +883,7 @@ footer .fa-stack-1x {
   position: relative;
   top: 184px;
   left: 165px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .heroTitle {
@@ -905,15 +908,15 @@ footer .fa-stack-1x {
 }
 
 .secondary-btn {
-  background: #FFFFFF;
+  background: #ffffff;
   justify-content: center;
   align-items: center;
-  border: 1px solid #715CDD;
+  border: 1px solid #715cdd;
   box-sizing: border-box;
   border-radius: 2px;
   width: 211px;
   height: 42px;
-  color: #715CDD;
+  color: #715cdd;
 }
 
 .bannerBtn {
@@ -925,14 +928,15 @@ footer .fa-stack-1x {
   position: absolute;
   width: 475px;
   height: 252px;
-  top: 155px
+  top: 155px;
 }
 
 .top-left {
   left: 165px;
 }
 
-.section-title, .team-title {
+.section-title,
+.team-title {
   width: 475px;
   height: 68px;
   font-weight: bold;
@@ -955,7 +959,7 @@ footer .fa-stack-1x {
 .sectionBucket {
   position: relative;
   height: 462px;
-  background: #F7F7F7;
+  background: #f7f7f7;
 }
 
 .about-bucket {
@@ -970,7 +974,7 @@ footer .fa-stack-1x {
 }
 
 .about-bucket-head {
-  left: 177px
+  left: 177px;
 }
 
 .bucketTitle {
@@ -978,26 +982,29 @@ footer .fa-stack-1x {
   height: 34px;
 }
 
-.bucketDesc, .team-dec, .employ-desc {
+.bucketDesc,
+.team-dec,
+.employ-desc {
   font-size: 16px;
   line-height: 22px;
   text-align: center;
   letter-spacing: 0.3px;
-  color: #737B7D;
+  color: #737b7d;
 }
 
 .bucket-row {
-  position: absolute;
+  position: relative;
+  display: flex;
   top: 250px;
-  left: 245px;
+  /* left: 245px; */
 }
 
 .bucket-col {
   position: relative;
+  left: 225px;
   width: 350px;
   height: 200px;
-  margin: auto;
-  float: left;
+  margin: 30px;
 }
 
 .blog-section {
@@ -1032,8 +1039,8 @@ footer .fa-stack-1x {
   width: 526px;
   height: 566px;
   display: inline-block;
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
   margin-left: 57px;
@@ -1042,25 +1049,26 @@ footer .fa-stack-1x {
 .blogpost-Img {
   width: 526px;
   height: 272px;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border-radius: 5px 5px 0px 0px;
 }
 
-.blogpost-desc, .about-hero-desc {
-  color: #737B7D;
+.blogpost-desc,
+.about-hero-desc {
+  color: #737b7d;
 }
 
 .blogpost-readmore {
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
-  color: #715CDD;
+  color: #715cdd;
 }
 
 .card-section {
   position: relative;
   height: 297px;
-  background: #F7F7F7;
+  background: #f7f7f7;
   justify-content: center;
   align-items: center;
 }
@@ -1076,8 +1084,8 @@ footer .fa-stack-1x {
   display: inline-grid;
   width: 410px;
   height: 177px;
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 15px;
@@ -1097,6 +1105,9 @@ footer .fa-stack-1x {
 }
 
 .bucket-col-title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
   text-align: center;
   letter-spacing: 0.1px;
   color: #222222;
@@ -1106,12 +1117,13 @@ footer .fa-stack-1x {
   line-height: 20px;
   text-align: center;
   letter-spacing: 0.2px;
-  color: #737B7D;
+  color: #737b7d;
 }
 
-.bucket-cta {
+.bucket-cta,
+.bucket-cta-link {
   text-align: center;
-  color: #715CDD;
+  color: #715cdd;
   font-weight: bold;
   font-size: 14px;
   line-height: 18px;
@@ -1138,13 +1150,13 @@ footer .fa-stack-1x {
 .card-desc {
   position: relative;
   top: -10px;
-  color: #737B7D;
+  color: #737b7d;
 }
 
 /* about page */
 
 .aboutUs-banner {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .about-content {
@@ -1165,7 +1177,7 @@ footer .fa-stack-1x {
   flex-direction: column;
   position: relative;
   height: 753px;
-  background: #F7F7F7;
+  background: #f7f7f7;
 }
 
 .team-header {
@@ -1204,7 +1216,8 @@ footer .fa-stack-1x {
   margin-left: 30px;
 }
 
-.employ-name, .employ-desc {
+.employ-name,
+.employ-desc {
   text-align: center;
 }
 
@@ -1253,7 +1266,7 @@ footer .fa-stack-1x {
   bottom: 52px;
   width: 328px;
   letter-spacing: 0.2px;
-  color: #737B7D;
+  color: #737b7d;
 }
 
 .about-bucket-container {

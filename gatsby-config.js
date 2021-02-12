@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // Module dependency
 
 require("dotenv").config({
@@ -6,9 +7,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Sample App`,
-    description: `This is a sample app build using Gatsby and Contentstack`,
-    author: `Contentstack`,
+    title: "Gatsby Sample App",
+    description: "This is a sample app build using Gatsby and Contentstack",
+    author: "Contentstack",
   },
   plugins: [
     // `gatsby-plugin-react-helmet`,
@@ -46,7 +47,7 @@ module.exports = {
         // Optional: Specify true if you want to generate custom schema
         enableSchemaGeneration: true,
         // Optional: Specify a different prefix for types. This is useful in cases where you have multiple instances of the plugin to be connected to different stacks.
-        type_prefix: `Contentstack`, // (default),
+        type_prefix: "Contentstack", // (default),
         downloadAssets: true,
       },
     },

@@ -10,18 +10,18 @@ import Footer from "./footer"
 import "../styles/global.css"
 import "../styles/style.css"
 
-const Wrapper = props => {
-  return <>{props.children}</>
-}
+// const Wrapper = props => {
+//   return <>{props.children}</>
+// }
 
 const Layout = props => {
   return (
     <>
       <Header />
-      <Wrapper>
-        <main>{props.children}</main>
-        <Footer />
-      </Wrapper>
+      {/* <Wrapper> */}
+      <main>{props.children}</main>
+      <Footer />
+      {/* </Wrapper> */}
     </>
   )
 }
