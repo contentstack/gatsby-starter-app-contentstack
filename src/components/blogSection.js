@@ -13,12 +13,12 @@ const BlogSection = ({ data }) => {
             <button className="secondary-btn article-btn">{data.from_blog.view_articles.title}</button>
             : ''}
         </div>
-        <div className="blog-container">
+        <div className="home-blog-container">
           {data.from_blog.featured_blogs.map((blog, index) => {
             return (
               <div className="blog-thumbnail" key={index}>
                 {blog.featured_image ? <img src={blog.featured_image.url} className="blogpost-Img" /> : ''}
-                <div className="blog-content">
+                <div className="home-blog-content">
                   {blog.title ? <h3 className="blogpost-title">{blog.title}</h3> : ''}
                   {blog.body ? <p className="blogpost-desc">{ReactHtmlParser(blog.body)}</p> : ''}
                   <div className="blogpost-cta">
