@@ -289,7 +289,7 @@ header nav li a.active {
 footer {
   width: 100%;
   height: 157px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .footer-div {
@@ -664,6 +664,7 @@ footer .fa-stack-1x {
   top: 18px;
   font-weight: 700;
   font-size: 44px;
+  right: 68px;
 }
 
 .blog-head-desc {
@@ -682,8 +683,6 @@ footer .fa-stack-1x {
 
 .blog-container {
   position: relative;
-  width: 1440px;
-  height: 821px;
   margin: 0 auto;
   max-width: 1280px;
   position: relative;
@@ -732,6 +731,7 @@ footer .fa-stack-1x {
 
 .blog-column-right {
   position: relative;
+  bottom: 286px;
 }
 
 .blog-lib {
@@ -1244,7 +1244,7 @@ footer .fa-stack-1x {
 }
 
 .section-left {
-  left: 165px;
+  left: 265px;
 }
 
 .about-bucket-div {
