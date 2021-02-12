@@ -3,7 +3,6 @@ import React from "react"
 import ReactHtmlParser from "react-html-parser"
 
 const SectionBucket = ({ data }) => {
-  console.log("bucket", data)
   return (
     <>
       <div className="sectionBucket">

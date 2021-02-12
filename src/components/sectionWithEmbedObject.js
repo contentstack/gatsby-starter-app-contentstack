@@ -16,7 +16,7 @@ const SectionWithEmbedObject = ({ data }) => {
               ""
             )}
           </div>
-          <div className="column-right">
+          <div className="column-right map-text">
             <div className="section">
               {data.section_with_embed_object.title ? (
                 <h2>{data.section_with_embed_object.title}</h2>

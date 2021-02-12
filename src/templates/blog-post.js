@@ -11,22 +11,14 @@ import SEO from "../components/seo"
 import FromBlog from "../components/fromBlog"
 import HeroBanner from "../components/blogBanner"
 
-const dateSetter = params => {
-  const date = new Date(params)
-  const yy = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date)
-  const mm = new Intl.DateTimeFormat("en", { month: "short" }).format(date)
-  const dd = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date)
-  return `${mm}-${dd}-${yy}`
-}
-
 export default function blogPost({ data }) {
   console.log("S",data)
   return (
     <Layout>
       <SEO title="Home" />
        <HeroBanner/>
-        <div class="blog-container">
-          <div class="blog-detail">
+        <div className="blog-container">
+          <div className="blog-detail">
             <h1>
               {data.contentstackBlogPost.title
                 ? data.contentstackBlogPost.title
@@ -34,8 +26,8 @@ export default function blogPost({ data }) {
             </h1>
             <p>{ReactHtmlParser(data.contentstackBlogPost.body)}</p>
           </div>
-          <div class="blog-column-right">
-            <div class="related-post">
+          <div className="blog-column-right">
+            <div className="related-post">
               <h1>Related Post</h1>
               <FromBlog />
             </div>

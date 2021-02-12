@@ -53,7 +53,6 @@ const Section = ({ data }) => {
           </div>
         </div>
       </div>
-      {console.log("Section", data.section)}
     </>
   )
 }

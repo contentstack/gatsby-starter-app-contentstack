@@ -12,7 +12,7 @@ const Contact = ({ data }) => (
       ? data.allContentstackPage.nodes[0].page_components.map(
           (component, index) => {
             if (component["section_with_embed_object"]) {
-              return <SectionWithEmbedObject data={component} />
+              return <SectionWithEmbedObject data={component} key={index} />
             }
           }
         )

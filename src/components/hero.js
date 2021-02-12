@@ -43,7 +43,6 @@ const Hero = ({ data }) => {
           </div>
         </div>
       </div>
-      {console.log("hero", data)}
     </>
   )
 }

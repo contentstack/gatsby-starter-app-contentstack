@@ -42,7 +42,6 @@ const queryLayout = () => {
 
 const Footer = () => {
   let data = queryLayout()
-  console.log("data foo", data)
   return (
     <>
       <footer>
@@ -79,17 +78,9 @@ const Footer = () => {
                       href={social.link.href}
                       title={social.link.title.toLowerCase()}
                       key={index}
+                      className="footer-social-links"
                     >
-                      <span className="fa-1x fa-stack">
-                        <i
-                          className={
-                            "fa fa-stack-1x fa-inverse fa-" +
-                            social.link.title.toLowerCase()
-                          }
-                        >
-                          {" "}
-                        </i>
-                      </span>
+                      <img src={social.icon.url}/>
                     </a>
                   )
                 }

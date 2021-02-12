@@ -37,13 +37,13 @@ const BlogSection = ({ data }) => {
                   )}
                   {blog.body ? (
                     <p className="blogpost-desc">
-                      {ReactHtmlParser(blog.body)}
+                      {ReactHtmlParser(blog.body.slice(0,500) + "...")}
                     </p>
                   ) : (
                     ""
                   )}
                   <div className="blogpost-cta">
-                    <span className="blogpost-readmore">Read More --></span>
+                    <Link className="blogpost-readmore" to={blog.url} >{"Read More -->"}</Link>
                   </div>
                 </div>
               </div>
@@ -51,7 +51,6 @@ const BlogSection = ({ data }) => {
           })}
         </div>
       </div>
-      {console.log("BlogSection", data)}
     </>
   )
 }

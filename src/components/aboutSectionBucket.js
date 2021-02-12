@@ -16,7 +16,7 @@ const AboutSectionBucket = ({ data }) => {
             {data.section_with_buckets.buckets.map((bucket, index) => {
               return (
                 <div className="about-bucket-col" key={index}>
-                  <span class="about-span-icon">
+                  <span className="about-span-icon">
                     {bucket.icon ? <img src={bucket.icon.url} alt="art work" /> : ''}
                   </span>
 
@@ -39,7 +39,6 @@ const AboutSectionBucket = ({ data }) => {
           </div>
         </div>
       </div>
-      {console.log('Section', data)}
     </>
   )
 }

@@ -13,44 +13,43 @@ const Blog = ({ data }) => (
     <div className="blog-container">
       <div className="blog-column-left">
         {data.allContentstackBlogPost.nodes.map((blog, index) => {
-          return (
-            <>
+          return (   
               <a href={blog.url} key={index}>
-                <div class="blog-list">
+                <div className="blog-list">
                   {blog.featured_image ? (
-                    <img class="blog-img" src={blog.featured_image.url} />
+                    <img className="blog-img" src={blog.featured_image.url} />
                   ) : (
                     ""
                   )}
-                  <div class="blog-content">
+                  <div className="blog-content">
                     {blog.title ? (
-                      <h2 class="blog-content-h2">{blog.title}</h2>
+                      <h2 className="blog-content-h2">{blog.title}</h2>
                     ) : (
                       ""
                     )}
                     {blog.body ? (
-                      <p class="blog-content-p">
+                      <p className="blog-content-p">
                         {ReactHtmlParser(blog.body.slice(0, 300))}
                       </p>
                     ) : (
                       ""
                     )}
                     {blog.url ? (
-                      <a class="blog-list-cta" href={blog.url}>
+                      <span className="blog-list-cta">
                         Read More..
-                      </a>
+                      </span>
                     ) : (
                       ""
                     )}
                   </div>
                 </div>
               </a>
-            </>
+          
           )
         })}
       </div>
-      <div class="blog-column-right">
-        <div class="blog-lib">
+      <div className="blog-column-right">
+        <div className="blog-lib">
           <h1>Archived Blogs</h1>
           <FromBlog />
         </div>

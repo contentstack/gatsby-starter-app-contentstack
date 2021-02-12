@@ -11,38 +11,37 @@ import TeamSection from "../components/teamSection"
 const About = ({ data }) => (
   <Layout>
     <SEO title="About" />
-    {console.log("About", data)}
     <div className="about">
       {data.allContentstackPage.nodes[0].page_components
         ? data.allContentstackPage.nodes[0].page_components.map(
           (component, index) => {
             if (component["hero_banner"]) {
-              return <Hero data={component} invert />
+              return <Hero data={component} invert key={index}/>
             }
             if (component["section"]) {
-              return <Section data={component} />
+              return <Section data={component} key={index}/>
             }
             if (component["section_with_buckets"]) {
-              return <AboutSectionBucket data={component} />
+              return <AboutSectionBucket data={component} key={index}/>
             }
             if (component["our_team"]) {
-              return <TeamSection data={component} />
+              return <TeamSection data={component} key={index}/>
             }
             {
               data.allContentstackPage.nodes[0].page_components
               ? data.allContentstackPage.nodes[0].page_components.map(
                 (component, index) => {
                   if (component["hero_banner"]) {
-                    return <Hero data={component} />
+                    return <Hero data={component} key={index}/>
                   }
                   if (component["section"]) {
-                    return <Section data={component} />
+                    return <Section data={component} key={index}/>
                   }
                   if (component["section_with_buckets"]) {
-                    return <SectionBucket data={component} />
+                    return <SectionBucket data={component} key={index}/>
                   }
                   if (component["our_team"]) {
-                    return <TeamSection data={component} />
+                    return <TeamSection data={component} key={index}/>
                   }
                 }
               )

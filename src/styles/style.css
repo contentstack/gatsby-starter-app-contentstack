@@ -321,8 +321,8 @@ footer nav {
   top: 8px;
 }
 
-footer .fa-stack-1x {
-  color: #00a3eb;
+.footer-social-links{
+  padding: 12px;
 }
 
 .copyright {
@@ -478,17 +478,23 @@ footer .fa-stack-1x {
 .column-left {
   position: absolute;
   left: 6px;
+  top:110px
 }
-
+.column-left p{
+  color: #737b7d;
+}
 .column-right {
   position: absolute;
   right: -16px;
   top: 35px;
 }
 
+.map-text{
+margin-top: 88px;
+}
+
 .container .section {
   width: 458px;
-  margin-top: 117px;
 }
 
 .container .section h2 {
@@ -668,7 +674,7 @@ footer .fa-stack-1x {
 
 .blog-head-desc {
   position: relative;
-  left: -66px;
+  left: -154px;
   top: 28px;
   font-size: 16px;
   width: 475px;
@@ -863,7 +869,7 @@ footer .fa-stack-1x {
 
 .heroImgDiv {
   position: absolute;
-  right: 254px;
+  right: 200px;
   top: 254px;
 }
 
@@ -987,7 +993,7 @@ footer .fa-stack-1x {
   position: relative;
   display: flex;
   top: 250px;
-  /* left: 245px; */
+  right: 76px;
 }
 
 .bucket-col {
@@ -1007,7 +1013,7 @@ footer .fa-stack-1x {
 .blog-section-head {
   position: absolute;
   top: 84px;
-  left: 220px;
+  left: 200px;
 }
 
 .article-btn {
@@ -1019,7 +1025,8 @@ footer .fa-stack-1x {
 .home-blog-container {
   position: absolute;
   top: 210px;
-  left: 164px;
+  left: 142px;
+  height: 829px;
 }
 
 .home-blog-content {
@@ -1183,7 +1190,7 @@ footer .fa-stack-1x {
   display: inline-block;
   text-align: center;
   top: 83px;
-  left: 382px;
+  left: 275px;
   width: 920px;
   height: 130px;
 }
@@ -1212,7 +1219,7 @@ footer .fa-stack-1x {
   position: relative;
   top: 248px;
   display: flex;
-  left: 205px;
+  left: 92px;
 }
 
 .employ-card {
@@ -1233,11 +1240,11 @@ footer .fa-stack-1x {
 }
 
 .section-right {
-  right: 254px;
+  right: 200px;
 }
 
 .section-left {
-  left: 265px;
+  left: 185px;
 }
 
 .about-bucket-div {

@@ -34,7 +34,6 @@ const CardSection = ({ data }) => {
           })}
         </div>
       </div>
-      {console.log("CardSection", data)}
     </>
   )
 }
