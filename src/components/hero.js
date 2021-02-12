@@ -7,7 +7,7 @@ const Hero = ({ data }) => {
     <>
       <div className="hero">
         <div className="max-width-banner">
-          <div className="content hero-content">
+          <div className={"content hero-content"}>
             {data.hero_banner.banner_title ? (
               <h1 className="heroTitle">{data.hero_banner.banner_title}</h1>
             ) : (

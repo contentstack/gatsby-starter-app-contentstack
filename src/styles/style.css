@@ -124,7 +124,7 @@ body a:hover {
 .note-div {
   position: static;
   width: 100%;
-  height: 27px;
+  height: 23px;
   left: 0px;
   top: 0px;
   background: #f2efff;
@@ -134,7 +134,7 @@ body a:hover {
   margin: 0px 0px;
 }
 
-.note-display {
+.note-div p {
   margin: 0 auto;
   width: 375px;
   height: 22px;
@@ -330,6 +330,7 @@ footer .fa-stack-1x {
   position: absolute;
   top: 52px;
   left: 34%;
+  opacity: 0.5;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -663,6 +664,7 @@ footer .fa-stack-1x {
   top: 18px;
   font-weight: 700;
   font-size: 44px;
+  right: 68px;
 }
 
 .blog-head-desc {
@@ -681,8 +683,6 @@ footer .fa-stack-1x {
 
 .blog-container {
   position: relative;
-  width: 1440px;
-  height: 821px;
   margin: 0 auto;
   max-width: 1280px;
   position: relative;
@@ -731,6 +731,7 @@ footer .fa-stack-1x {
 
 .blog-column-right {
   position: relative;
+  bottom: 286px;
 }
 
 .blog-lib {
@@ -754,8 +755,7 @@ footer .fa-stack-1x {
 
 .blog-column-right .blog-lib h4 {
   position: static;
-  width: 140px;
-  height: 16px;
+  width: 255px;
   left: 0px;
   top: 0px;
   font-weight: 500;
@@ -1156,6 +1156,14 @@ footer .fa-stack-1x {
 
 /* about page */
 
+.about .hero .heroTitle{
+  color: #222222;
+}
+
+.about .hero .heroDescription{
+  color: #737B7D;
+}
+
 .aboutUs-banner {
   background: #ffffff;
 }
@@ -1256,7 +1264,8 @@ footer .fa-stack-1x {
 
 .about-bucket-col {
   width: 420px;
-  height: 98px;
+  height: 105px;
+  /* height: 98px; */
   /* margin-left: 168px; */
   margin-right: 160px;
 }

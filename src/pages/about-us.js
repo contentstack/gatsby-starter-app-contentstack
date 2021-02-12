@@ -16,7 +16,7 @@ const About = ({ data }) => (
       ? data.allContentstackPage.nodes[0].page_components.map(
           (component, index) => {
             if (component["hero_banner"]) {
-              return <Hero data={component} />
+              return <Hero data={component} invert/>
             }
             if (component["section"]) {
               return <Section data={component} />
