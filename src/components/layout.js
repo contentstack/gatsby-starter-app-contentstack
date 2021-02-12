@@ -7,8 +7,7 @@
 import React from "react"
 import Header from "./header"
 import Footer from "./footer"
-import "../styles/global.css"
-import "../styles/style.css"
+import '../styles/style.css'
 
 const Wrapper = props => {
   return <>{props.children}</>

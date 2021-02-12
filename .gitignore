@@ -9,4 +9,5 @@ package-lock.json
 .DS_Store
 
 # Secrets
-# .env*
+.env*
+.env.development
