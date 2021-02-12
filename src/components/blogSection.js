@@ -43,11 +43,7 @@ const BlogSection = ({ data }) => {
                     ""
                   )}
                   <div className="blogpost-cta">
-                    <span className="blogpost-readmore">Read More</span>
-                    <i
-                      className="fa fa-long-arrow-right"
-                      aria-hidden="true"
-                    ></i>
+                    <span className="blogpost-readmore">Read More --></span>
                   </div>
                 </div>
               </div>
