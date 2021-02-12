@@ -12,8 +12,9 @@ const About = ({ data }) => (
   <Layout>
     <SEO title="About" />
     {console.log("About", data)}
-    {data.allContentstackPage.nodes[0].page_components
-      ? data.allContentstackPage.nodes[0].page_components.map(
+    <div className="about">
+      {data.allContentstackPage.nodes[0].page_components
+        ? data.allContentstackPage.nodes[0].page_components.map(
           (component, index) => {
             if (component["hero_banner"]) {
               return <Hero data={component} />
@@ -27,27 +28,30 @@ const About = ({ data }) => (
             if (component["our_team"]) {
               return <TeamSection data={component} />
             }
-            {data.allContentstackPage.nodes[0].page_components
+            {
+              data.allContentstackPage.nodes[0].page_components
               ? data.allContentstackPage.nodes[0].page_components.map(
-                  (component, index) => {
-                    if (component["hero_banner"]) {
-                      return <Hero data={component} />
-                    }
-                    if (component["section"]) {
-                      return <Section data={component} />
-                    }
-                    if (component["section_with_buckets"]) {
-                      return <SectionBucket data={component} />
-                    }
-                    if (component["our_team"]) {
-                      return <TeamSection data={component} />
-                    }
+                (component, index) => {
+                  if (component["hero_banner"]) {
+                    return <Hero data={component} />
                   }
-                )
-              : ""}
+                  if (component["section"]) {
+                    return <Section data={component} />
+                  }
+                  if (component["section_with_buckets"]) {
+                    return <SectionBucket data={component} />
+                  }
+                  if (component["our_team"]) {
+                    return <TeamSection data={component} />
+                  }
+                }
+              )
+              : ""
+            }
           }
         )
-      : ""}
+        : ""}
+    </div>
   </Layout>
 )
 
@@ -96,6 +100,7 @@ export const pageQuery = graphql`
           hero_banner {
             banner_description
             banner_title
+            bg_color
             banner_image {
               title
               url
