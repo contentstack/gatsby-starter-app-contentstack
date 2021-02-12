@@ -62,11 +62,9 @@ const Footer = () => {
               <ul className="nav-ul">
                 {data.contentstackFooter.navigation.link.map((menu, index) => {
                   return (
-                    <>
-                      <li className="nav-li" key={index}>
-                        <Link to={menu.href}>{menu.title}</Link>
-                      </li>
-                    </>
+                    <li className="nav-li" key={index}>
+                      <Link to={menu.href}>{menu.title}</Link>
+                    </li>
                   )
                 })}
               </ul>
@@ -97,11 +95,11 @@ const Footer = () => {
                 }
               )}
             </div>
-            <div className="copyright">
-              {data.contentstackFooter.copyright
-                ? ReactHtmlParser(data.contentstackFooter.copyright)
-                : ""}
-            </div>
+          </div>
+          <div className="copyright">
+            {data.contentstackFooter.copyright
+              ? ReactHtmlParser(data.contentstackFooter.copyright)
+              : ""}
           </div>
         </div>
       </footer>

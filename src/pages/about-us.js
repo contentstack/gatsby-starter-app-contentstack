@@ -5,14 +5,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
 import Section from "../components/section"
-import SectionBucket from "../components/sectionBucket"
+import AboutSectionBucket from "../components/aboutSectionBucket"
 import TeamSection from "../components/teamSection"
 
 const About = ({ data }) => (
   <Layout>
     <SEO title="About" />
     {console.log("About", data)}
-
     {data.allContentstackPage.nodes[0].page_components
       ? data.allContentstackPage.nodes[0].page_components.map(
           (component, index) => {
@@ -23,72 +22,32 @@ const About = ({ data }) => (
               return <Section data={component} />
             }
             if (component["section_with_buckets"]) {
-              return <SectionBucket data={component} />
+              return <AboutSectionBucket data={component} />
             }
             if (component["our_team"]) {
               return <TeamSection data={component} />
             }
+            {data.allContentstackPage.nodes[0].page_components
+              ? data.allContentstackPage.nodes[0].page_components.map(
+                  (component, index) => {
+                    if (component["hero_banner"]) {
+                      return <Hero data={component} />
+                    }
+                    if (component["section"]) {
+                      return <Section data={component} />
+                    }
+                    if (component["section_with_buckets"]) {
+                      return <SectionBucket data={component} />
+                    }
+                    if (component["our_team"]) {
+                      return <TeamSection data={component} />
+                    }
+                  }
+                )
+              : ""}
           }
         )
       : ""}
-
-    {/* <div
-        class="hero short"
-        style={{
-          background: `url(${
-            data.allContentstackPage.nodes[0].page_components[0].hero_banner
-              .banner_image
-              ? data.allContentstackPage.nodes[0].page_components[0].hero_banner
-                  .banner_image.url
-              : ""
-          })`,
-        }}
-      >
-        <div class="max-width">
-          <div class="content">
-            <h1>
-              {data.allContentstackPage.nodes[0].title
-                ? data.allContentstackPage.nodes[0].title
-                : ""}
-            </h1>
-            {data.allContentstackPage.nodes[0].page_components.map(index => {
-              if (index.rich_text !== null) {
-                return <>{ReactHtmlParser(index.rich_text.rte.slice(0, 98))}</>
-              }
-            })}
-          </div>
-        </div>
-      </div>
-      <div class="max-width">
-        <div class="buckets padding-both">
-          {data.allContentstackPage.nodes[0].page_components.map(index => {
-            if (index.section !== null) {
-              return index.section.heading.map(index => {
-                return (
-                  <div class="bucket">
-                    <div class="inner">
-                      <h3>{index.title_h2}</h3>
-                      {ReactHtmlParser(index.description)}
-                    </div>
-                  </div>
-                )
-              })
-            }
-          })}
-          <div class="related-links">
-            {data.allContentstackPage.nodes[0].related_pages.map(index => {
-              return (
-                <div>
-                  <h3>Related Pages</h3>
-                  <p>
-                    <Link to={index.url}>{index.title}</Link>
-                  </p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </div> */}
   </Layout>
 )
 
