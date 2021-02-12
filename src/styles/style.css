@@ -33,7 +33,7 @@ body a:hover {
 .note-div {
   position: static;
   width: 100%;
-  height: 32px;
+  height: 23px;
   left: 0px;
   top: 0px;
   background: #f2efff;
@@ -164,8 +164,7 @@ nav ul li a {
   font-size: normal;
 }
 
-.top-section h2,
-.top-section p {
+.top-section h2, .top-section p {
   margin: 6px 0;
   padding: 0;
 }
@@ -340,12 +339,10 @@ footer .fa-stack-1x {
     display: -ms-flexbox;
     display: flex;
   }
-  footer nav,
-  footer .social-nav {
+  footer nav, footer .social-nav {
     padding-top: 12px;
   }
-  footer .social-nav,
-  footer .copyright {
+  footer .social-nav, footer .copyright {
     text-align: right;
   }
   footer .copyright {
@@ -644,10 +641,12 @@ footer .fa-stack-1x {
   align-items: center;
   color: #715cdd;
 }
+
 .blog-banner {
   position: relative;
   top: 30px;
 }
+
 .blog-banner .blog-content {
   padding: 25px 639px;
   position: static;
@@ -664,12 +663,12 @@ footer .fa-stack-1x {
   top: 18px;
   font-weight: 700;
   font-size: 44px;
-  right: 68px;
+  right: 14px;
 }
 
 .blog-head-desc {
   position: relative;
-  left: -126px;
+  left: -66px;
   top: 28px;
   font-size: 16px;
   width: 475px;
@@ -731,7 +730,6 @@ footer .fa-stack-1x {
 
 .blog-column-right {
   position: relative;
-  bottom: 286px;
 }
 
 .blog-lib {
@@ -935,8 +933,7 @@ footer .fa-stack-1x {
   left: 165px;
 }
 
-.section-title,
-.team-title {
+.section-title, .team-title {
   width: 475px;
   height: 68px;
   font-weight: bold;
@@ -949,6 +946,7 @@ footer .fa-stack-1x {
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.3px;
+  color: #737B7D;
 }
 
 .sectionImg {
@@ -982,9 +980,7 @@ footer .fa-stack-1x {
   height: 34px;
 }
 
-.bucketDesc,
-.team-dec,
-.employ-desc {
+.bucketDesc, .team-dec, .employ-desc {
   font-size: 16px;
   line-height: 22px;
   text-align: center;
@@ -1054,8 +1050,7 @@ footer .fa-stack-1x {
   border-radius: 5px 5px 0px 0px;
 }
 
-.blogpost-desc,
-.about-hero-desc {
+.blogpost-desc, .about-hero-desc {
   color: #737b7d;
 }
 
@@ -1121,8 +1116,7 @@ footer .fa-stack-1x {
   color: #737b7d;
 }
 
-.bucket-cta,
-.bucket-cta-link {
+.bucket-cta, .bucket-cta-link {
   text-align: center;
   color: #715cdd;
   font-weight: bold;
@@ -1156,11 +1150,11 @@ footer .fa-stack-1x {
 
 /* about page */
 
-.about .hero .heroTitle{
+.about .hero .heroTitle {
   color: #222222;
 }
 
-.about .hero .heroDescription{
+.about .hero .heroDescription {
   color: #737B7D;
 }
 
@@ -1194,7 +1188,7 @@ footer .fa-stack-1x {
   display: inline-block;
   text-align: center;
   top: 83px;
-  left: 260px;
+  left: 382px;
   width: 920px;
   height: 130px;
 }
@@ -1204,6 +1198,9 @@ footer .fa-stack-1x {
   left: 40%;
   height: 34px;
   width: 150px;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 34px;
 }
 
 .team-dec {
@@ -1212,21 +1209,22 @@ footer .fa-stack-1x {
   width: 920px;
   height: 44px;
   text-align: left;
+  font-size: 16px;
+  letter-spacing: 0.3px;
 }
 
 .employees-section {
   position: relative;
   top: 248px;
   display: flex;
-  left: 115px;
+  left: 205px;
 }
 
 .employ-card {
   margin-left: 30px;
 }
 
-.employ-name,
-.employ-desc {
+.employ-name, .employ-desc {
   text-align: center;
 }
 
@@ -1296,9 +1294,7 @@ footer .fa-stack-1x {
 }
 
 .about-bucket-row {
-
   columns: 2;
-
   position: relative;
   /* width: 462px; */
   /* height: 226px; */

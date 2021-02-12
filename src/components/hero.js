@@ -5,7 +5,7 @@ import ReactHtmlParser from "react-html-parser"
 const Hero = ({ data }) => {
   return (
     <>
-      <div className="hero">
+      <div className="hero" style={{ background: data.hero_banner.bg_color ? data.hero_banner.bg_color : '' }}>
         <div className="max-width-banner">
           <div className={"content hero-content"}>
             {data.hero_banner.banner_title ? (
