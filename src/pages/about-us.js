@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Hero from "../components/hero";
 import Section from "../components/section";
-import SectionBucket from "../components/sectionBucket";
+import AboutSectionBucket from "../components/aboutSectionBucket";
 import TeamSection from "../components/teamSection";
 
 const About = ({ data }) => (
@@ -27,7 +27,7 @@ const About = ({ data }) => (
           }
           if (component['section_with_buckets']) {
             return (
-              <SectionBucket data={component} />
+              <AboutSectionBucket data={component} />
             )
           }
           if (component['our_team']) {
