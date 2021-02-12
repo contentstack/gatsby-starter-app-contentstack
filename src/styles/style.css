@@ -286,6 +286,12 @@ header nav li a.active {
   }
 }
 
+footer {
+  width: 100%;
+  height: 157px;
+  background: #ffffff;
+}
+
 .footer-div {
   position: relative;
   top: 110px;
@@ -1230,7 +1236,7 @@ footer .fa-stack-1x {
 }
 
 .section-left {
-  left: 165px;
+  left: 265px;
 }
 
 .about-bucket-div {
