@@ -146,6 +146,7 @@ export const pageQuery = graphql`
           hero_banner {
             banner_description
             banner_title
+            bg_color
             banner_image {
               title
               url
