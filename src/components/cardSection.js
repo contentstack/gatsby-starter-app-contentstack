@@ -22,9 +22,11 @@ const CardSection = ({ data }) => {
                 )}
                 <div className="card-cta">
                   {card.call_to_action.title && card.call_to_action.href ? (
+                    <Link to={card.call_to_action.href}>
                     <button className="primary-btn">
                       {card.call_to_action.title}
                     </button>
+                    </Link>
                   ) : (
                     ""
                   )}
