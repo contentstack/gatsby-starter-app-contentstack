@@ -12,27 +12,26 @@ import FromBlog from "../components/fromBlog"
 import HeroBanner from "../components/blogBanner"
 
 export default function blogPost({ data }) {
-  console.log("S",data)
   return (
     <Layout>
       <SEO title="Home" />
-       <HeroBanner/>
-        <div className="blog-container">
-          <div className="blog-detail">
-            <h1>
-              {data.contentstackBlogPost.title
-                ? data.contentstackBlogPost.title
-                : ""}
-            </h1>
-            <p>{ReactHtmlParser(data.contentstackBlogPost.body)}</p>
-          </div>
-          <div className="blog-column-right">
-            <div className="related-post">
-              <h1>Related Post</h1>
-              <FromBlog />
-            </div>
+      <HeroBanner />
+      <div className="blog-container">
+        <div className="blog-detail">
+          <h1>
+            {data.contentstackBlogPost.title
+              ? data.contentstackBlogPost.title
+              : ""}
+          </h1>
+          <p>{ReactHtmlParser(data.contentstackBlogPost.body)}</p>
+        </div>
+        <div className="blog-column-right">
+          <div className="related-post">
+            <h1>{data.contentstackPage.page_components[2].widget.title_h2}</h1>
+            <FromBlog />
           </div>
         </div>
+      </div>
     </Layout>
   )
 }
@@ -64,6 +63,14 @@ export const postQuery = graphql`
         keywords
         meta_description
         meta_title
+      }
+    }
+    contentstackPage {
+      page_components {
+        widget {
+          title_h2
+          type
+        }
       }
     }
   }

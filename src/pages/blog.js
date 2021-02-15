@@ -50,7 +50,7 @@ const Blog = ({ data }) => (
       </div>
       <div className="blog-column-right">
         <div className="blog-lib">
-          <h1>Archived Blogs</h1>
+          <h1>{data.allContentstackPage.nodes[0].page_components[1].widget.title_h2}</h1>
           <FromBlog />
         </div>
       </div>
@@ -173,6 +173,12 @@ export const pageQuery = graphql`
             embed_object_alignment
             embed_object
             description
+          }
+
+          widget{
+            title_h2
+            type
+
           }
         }
       }
