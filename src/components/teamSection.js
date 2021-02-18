@@ -4,45 +4,27 @@ import ReactHtmlParser from "react-html-parser"
 
 const TeamSection = ({ data }) => {
   return (
-    <>
-      <div className="team-section">
-        <div className="team-header">
-          {data.our_team.title_h2 ? (
-            <h2 className="team-title">{data.our_team.title_h2}</h2>
-          ) : (
-            ""
-          )}
-          {data.our_team.description ? (
-            <p className="team-dec">{data.our_team.description}</p>
-          ) : (
-            ""
-          )}
-        </div>
-        <div className="employees-section">
-          {data.our_team.employees.map((employee, index) => {
-            return (
-              <div className="employ-card" key={index}>
-                {employee.image ? (
-                  <img className="employ-Img" src={employee.image.url} />
-                ) : (
-                  ""
-                )}
-                {employee.name ? (
-                  <h3 className="employ-name">{employee.name}</h3>
-                ) : (
-                  ""
-                )}
-                {employee.designation ? (
-                  <p className="employ-desc">{employee.designation}</p>
-                ) : (
-                  ""
-                )}
-              </div>
-            )
-          })}
-        </div>
+    <div className="about-team-section">
+      <div className="team-head-section">
+        {data.our_team.title_h2 ? <h2>{data.our_team.title_h2}</h2> : ""}
+        {data.our_team.description ? <p>{data.our_team.description}</p> : ""}
       </div>
-    </>
+      <div className="team-content">
+        {data.our_team.employees.map((employee, index) => {
+          return (
+            <div className="team-details" key={index}>
+              {employee.image && (
+                <img alt={employee.image.filename} src={employee.image.url} />
+              )}
+              <div className="team-details">
+                {employee.name && <h4>{employee.name}</h4>}
+                {employee.designation && <p>{employee.designation}</p>}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 

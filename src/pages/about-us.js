@@ -1,6 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import ReactHtmlParser from "react-html-parser"
+import {graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
@@ -14,41 +13,21 @@ const About = ({ data }) => (
     <div className="about">
       {data.allContentstackPage.nodes[0].page_components
         ? data.allContentstackPage.nodes[0].page_components.map(
-          (component, index) => {
-            if (component["hero_banner"]) {
-              return <Hero data={component} invert key={index}/>
+            (component, index) => {
+              if (component["hero_banner"]) {
+                return <Hero data={component} about key={index} />
+              }
+              if (component["section"]) {
+                return <Section data={component} key={index} />
+              }
+              if (component["section_with_buckets"]) {
+                return <AboutSectionBucket data={component} key={index} />
+              }
+              if (component["our_team"]) {
+                return <TeamSection data={component} key={index} />
+              }
             }
-            if (component["section"]) {
-              return <Section data={component} key={index}/>
-            }
-            if (component["section_with_buckets"]) {
-              return <AboutSectionBucket data={component} key={index}/>
-            }
-            if (component["our_team"]) {
-              return <TeamSection data={component} key={index}/>
-            }
-            {
-              data.allContentstackPage.nodes[0].page_components
-              ? data.allContentstackPage.nodes[0].page_components.map(
-                (component, index) => {
-                  if (component["hero_banner"]) {
-                    return <Hero data={component} key={index}/>
-                  }
-                  if (component["section"]) {
-                    return <Section data={component} key={index}/>
-                  }
-                  if (component["section_with_buckets"]) {
-                    return <SectionBucket data={component} key={index}/>
-                  }
-                  if (component["our_team"]) {
-                    return <TeamSection data={component} key={index}/>
-                  }
-                }
-              )
-              : ""
-            }
-          }
-        )
+          )
         : ""}
     </div>
   </Layout>

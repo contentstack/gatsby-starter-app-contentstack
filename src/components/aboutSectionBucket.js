@@ -1,46 +1,41 @@
-import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import ReactHtmlParser from "react-html-parser"
 
-
 const AboutSectionBucket = ({ data }) => {
-  return (
-    <>
-      <div className="sectionBucket about-bucket">
-        <div className="bucketHead about-bucket-head">
-          {data.section_with_buckets.title_h2 ? <h2 className="bucketTitle">{data.section_with_buckets.title_h2}</h2> : ''}
-          {data.section_with_buckets.description ? <p className="bucketDesc">{data.section_with_buckets.description}</p> : ''}
-        </div>
-        <div className="about-bucket-container">
-          <div className="about-bucket-row">
-            {data.section_with_buckets.buckets.map((bucket, index) => {
-              return (
-                <div className="about-bucket-col" key={index}>
-                  <span className="about-span-icon">
-                    {bucket.icon ? <img src={bucket.icon.url} alt="art work" /> : ''}
-                  </span>
+  function bucketContent(bucket, index) {
+    return (
+      <div className="mission-content-section" key={index}>
+        {bucket.icon && <img className="mission-icon" src={bucket.icon.url} alt="art work" />}
 
-                  <div className="about-bucket-div">
-                    {bucket.title_h3 ? <h3 className="bucket-col-title">{bucket.title_h3}</h3> : ''}
-                    {bucket.description ? <p className="bucket-col-desc">{ReactHtmlParser(bucket.description)}</p> : ''}
-                  </div>
-
-
-                  {bucket.call_to_action.title && bucket.call_to_action.href
-                    ?
-                    <div className="bucket-cta">
-                      <span>{bucket.call_to_action.title}</span>
-                      <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
-                    </div>
-                    : ''}
-                </div>
-              )
-            })}
-          </div>
+        <div className="mission-section-content">
+          {bucket.title_h3 && <h3>{bucket.title_h3}</h3>}
+          {bucket.description && <p>{ReactHtmlParser(bucket.description)}</p>}
         </div>
       </div>
-    </>
+    )
+  }
+
+  return (
+    <div className="member-main-section">
+      <div className="member-head">
+        {data.section_with_buckets.title_h2 && (
+          <h2>{data.section_with_buckets.title_h2}</h2>
+        )}
+      </div>
+      <div className="mission-section">
+        <div className="mission-content-top">
+          {data.section_with_buckets.buckets.map(
+            (bucket, index) =>index < 2 && bucketContent(bucket, index)
+          )}
+        </div>
+        <div className="mission-content-bottom">
+          {data.section_with_buckets.buckets.map(
+            (bucket, index) => index >= 2 && bucketContent(bucket, index)
+          )}
+        </div>
+      </div>
+    </div>
   )
 }
 
-export default AboutSectionBucket;
+export default AboutSectionBucket

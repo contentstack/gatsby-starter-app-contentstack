@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import ReactHtmlParser from "react-html-parser"
-import moment from 'moment';
+import moment from "moment"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroBanner from "../components/blogBanner"
@@ -26,7 +26,8 @@ const Blog = ({ data }) => (
               <div className="blog-content">
                 {blog.title ? <h3>{blog.title}</h3> : ""}
                 <p>
-                {moment(blog.date).format("ddd, MMM D YYYY")},  <strong>{blog.author[0].title}</strong>
+                  {moment(blog.date).format("ddd, MMM D YYYY")},{" "}
+                  <strong>{blog.author[0].title}</strong>
                 </p>
                 {blog.body ? (
                   <p>{ReactHtmlParser(blog.body.slice(0, 300))}</p>
@@ -35,7 +36,7 @@ const Blog = ({ data }) => (
                 )}
                 {blog.url ? (
                   <a href={blog.url}>
-                    <span>Read more --></span>
+                    <span>{"Read more -->"}</span>
                   </a>
                 ) : (
                   ""
@@ -51,11 +52,9 @@ const Blog = ({ data }) => (
         </h2>
         <FromBlog />
       </div>
-    </div>{
-      console.log(data,"hi")
-    }
+    </div>
+    {}
   </Layout>
-  
 )
 
 export const pageQuery = graphql`
@@ -188,7 +187,7 @@ export const pageQuery = graphql`
         url
         title
         uid
-        author{
+        author {
           title
         }
         date
