@@ -4,8 +4,8 @@ import ReactHtmlParser from "react-html-parser"
 const SectionWithEmbedObject = ({ data }) => {
   if (data.section_with_embed_object.embed_object_alignment === "Left") {
     return (
-      <div class="contact-page-section">
-        <div class="contact-page-content">
+      <div className="contact-page-section">
+        <div className="contact-page-content">
           {data.section_with_embed_object.title ? (
             <h1>{data.section_with_embed_object.title}</h1>
           ) : (
@@ -17,7 +17,7 @@ const SectionWithEmbedObject = ({ data }) => {
             ""
           )}{" "}
         </div>
-        <div class="contact-page-form">
+        <div className="contact-page-form">
           {data.section_with_embed_object.embed_object ? (
             <>{ReactHtmlParser(data.section_with_embed_object.embed_object)}</>
           ) : (
@@ -29,11 +29,11 @@ const SectionWithEmbedObject = ({ data }) => {
   }
   return (
     <>
-      <div class="contact-maps-section">
-        <div class="maps-details">
+      <div className="contact-maps-section">
+        <div className="maps-details">
           {ReactHtmlParser(data.section_with_embed_object.embed_object)}
         </div>
-        <div class="contact-maps-content">
+        <div className="contact-maps-content">
           {data.section_with_embed_object.title ? (
             <h2>{data.section_with_embed_object.title}</h2>
           ) : (

@@ -41,7 +41,7 @@ export default function blogPost({ data }) {
           </div>
         </div>
       </div>
-      {console.log("DDD",data)}
+      {console.log("DDD", data)}
     </Layout>
   )
 }

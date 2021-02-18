@@ -18,7 +18,11 @@ const Blog = ({ data }) => (
             <div className="blog-list" key={index}>
               {blog.featured_image && (
                 <Link href={blog.url}>
-                  <img alt="blog img" className="blog-list-img" src={blog.featured_image.url} />
+                  <img
+                    alt="blog img"
+                    className="blog-list-img"
+                    src={blog.featured_image.url}
+                  />
                 </Link>
               )}
               <div className="blog-content">

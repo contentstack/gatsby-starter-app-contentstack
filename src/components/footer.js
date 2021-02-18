@@ -80,7 +80,7 @@ const Footer = () => {
                       key={index}
                       className="footer-social-links"
                     >
-                      <img src={social.icon.url}/>
+                      <img src={social.icon.url} />
                     </a>
                   )
                 }

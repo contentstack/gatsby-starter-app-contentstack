@@ -5,7 +5,9 @@ const AboutSectionBucket = ({ data }) => {
   function bucketContent(bucket, index) {
     return (
       <div className="mission-content-section" key={index}>
-        {bucket.icon && <img className="mission-icon" src={bucket.icon.url} alt="art work" />}
+        {bucket.icon && (
+          <img className="mission-icon" src={bucket.icon.url} alt="art work" />
+        )}
 
         <div className="mission-section-content">
           {bucket.title_h3 && <h3>{bucket.title_h3}</h3>}
@@ -25,7 +27,7 @@ const AboutSectionBucket = ({ data }) => {
       <div className="mission-section">
         <div className="mission-content-top">
           {data.section_with_buckets.buckets.map(
-            (bucket, index) =>index < 2 && bucketContent(bucket, index)
+            (bucket, index) => index < 2 && bucketContent(bucket, index)
           )}
         </div>
         <div className="mission-content-bottom">
