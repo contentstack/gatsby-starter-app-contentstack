@@ -1,6 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import ReactHtmlParser from "react-html-parser"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SectionWithEmbedObject from "../components/sectionWithEmbedObject"

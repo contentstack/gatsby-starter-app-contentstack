@@ -1,6 +1,4 @@
-import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
-import ReactHtmlParser from "react-html-parser"
 
 const TeamSection = ({ data }) => {
   return (

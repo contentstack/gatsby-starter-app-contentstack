@@ -15,16 +15,18 @@ const Blog = ({ data }) => (
       <div className="blog-column-left">
         {data.allContentstackBlogPost.nodes.map((blog, index) => {
           return (
-            <div className="blog-list">
-              {blog.featured_image ? (
-                <a href={blog.url}>
-                  <img alt="blog img" src={blog.featured_image.url} />
-                </a>
-              ) : (
-                ""
+            <div className="blog-list" key={index}>
+              {blog.featured_image && (
+                <Link href={blog.url}>
+                  <img alt="blog img" className="blog-list-img" src={blog.featured_image.url} />
+                </Link>
               )}
               <div className="blog-content">
-                {blog.title ? <h3>{blog.title}</h3> : ""}
+                {blog.title && (
+                  <Link to={blog.url}>
+                    <h3>{blog.title}</h3>
+                  </Link>
+                )}
                 <p>
                   {moment(blog.date).format("ddd, MMM D YYYY")},{" "}
                   <strong>{blog.author[0].title}</strong>
@@ -35,9 +37,9 @@ const Blog = ({ data }) => (
                   ""
                 )}
                 {blog.url ? (
-                  <a href={blog.url}>
+                  <Link href={blog.url}>
                     <span>{"Read more -->"}</span>
-                  </a>
+                  </Link>
                 ) : (
                   ""
                 )}

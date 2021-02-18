@@ -337,6 +337,10 @@ footer a {
 .blog-list>a {
   background-color: #f2f2f2;
 }
+.blog-list-img{
+  width: 329px;
+  height: 340px;
+}
 
 .blog-column-left, .blog-column-right {
   display: flex;
@@ -424,7 +428,7 @@ footer a {
   width: 475px;
 }
 
-.hero-content p {
+.home-content p {
   margin-bottom: 32px;
 }
 
@@ -442,6 +446,7 @@ footer a {
   margin: 63px;
   flex-wrap: wrap;
 }
+
 
 .member-section {
   display: flex;
@@ -547,8 +552,10 @@ footer a {
 }
 
 .mission-icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 12px;
   display: inline-block;
-  margin-top: -56px;
   padding-right: 32px;
 }
 
