@@ -33,41 +33,41 @@ const queryHeader = () => {
 const Header = () => {
   let data = queryHeader()
   return (
-    <>
-      <header>
-        {data.contentstackHeader.notification_bar.show_announcement ? (
-          <div className="note-div">
+    <header>
+      {data.contentstackHeader.notification_bar.show_announcement ? (
+        <div className="note-div">
+          <p className="note-display">
             {ReactHtmlParser(
               data.contentstackHeader.notification_bar.announcement_text
             )}
-          </div>
-        ) : (
-          ""
-        )}
-        <div className="max-width">
-          <div className="wrapper-logo">
-            <Link to="/" className="logo-tag" title="Contentstack">
-              <img
-                className="logo"
-                src={data.contentstackHeader.logo.url}
-                alt="Contentstack logo"
-              />
-            </Link>
-          </div>
-          <nav>
-            <ul className="nav-ul">
-              {data.contentstackHeader.navigation_menu.map((menu, index) => {
-                return (
-                  <li className="nav-li" key={index}>
-                    <Link to={menu.page_reference[0].url}>{menu.label}</Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
+          </p>
         </div>
-      </header>
-    </>
+      ) : (
+        ""
+      )}
+      <div className="max-width">
+        <div className="wrapper-logo">
+          <Link to="/" className="logo-tag" title="Contentstack">
+            <img
+              className="logo"
+              src={data.contentstackHeader.logo.url}
+              alt="Contentstack logo"
+            />
+          </Link>
+        </div>
+        <nav>
+          <ul className="nav-ul">
+            {data.contentstackHeader.navigation_menu.map((menu, index) => {
+              return (
+                <li className="nav-li" key={index}>
+                  <Link to={menu.page_reference[0].url}>{menu.label}</Link>
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
+      </div>
+    </header>
   )
 }
 
