@@ -17,6 +17,7 @@
     "gatsby-source-contentstack": "2.2.12",
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-transformer-sharp": "^2.6.0",
+    "moment": "^2.29.1",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",

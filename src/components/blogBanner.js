@@ -25,11 +25,11 @@ const blogHero = () => {
   let data = queryBlogBanner()
   return (
     <>
-      <div className="blog-banner">
-        <div className="blog-content">
+      <div className="blog-page-banner">
+        <div className="blog-page-content">
           {data.allContentstackPage.nodes[0].page_components[0].hero_banner
             .banner_title ? (
-            <h1 className="blog-head-title">
+            <h1 className="hero-title">
               {
                 data.allContentstackPage.nodes[0].page_components[0].hero_banner
                   .banner_title
@@ -41,7 +41,7 @@ const blogHero = () => {
 
           {data.allContentstackPage.nodes[0].page_components[0].hero_banner
             .banner_description ? (
-            <p className="blog-head-desc">
+            <p className="hero-description">
               {
                 data.allContentstackPage.nodes[0].page_components[0].hero_banner
                   .banner_description

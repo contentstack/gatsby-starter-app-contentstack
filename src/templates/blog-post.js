@@ -5,6 +5,7 @@ import ReactHtmlParser, {
   convertNodeToElement,
   htmlparser2,
 } from "react-html-parser"
+import moment from "moment"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,20 +19,29 @@ export default function blogPost({ data }) {
       <HeroBanner />
       <div className="blog-container">
         <div className="blog-detail">
-          <h1>
+          <h2>
             {data.contentstackBlogPost.title
               ? data.contentstackBlogPost.title
               : ""}
-          </h1>
-          <p>{ReactHtmlParser(data.contentstackBlogPost.body)}</p>
+          </h2>
+          <p>
+            {moment(data.contentstackBlogPost.date).format("ddd, MMM D YYYY")},{" "}
+            <strong>{data.contentstackBlogPost.author[0].title}</strong>
+          </p>
+          {ReactHtmlParser(data.contentstackBlogPost.body)}
         </div>
         <div className="blog-column-right">
           <div className="related-post">
-            <h1>{data.contentstackPage.page_components[2].widget.title_h2}</h1>
+            {data.contentstackPage.page_components[2].widget && (
+              <h2>
+                {data.contentstackPage.page_components[2].widget.title_h2}
+              </h2>
+            )}
             <FromBlog />
           </div>
         </div>
       </div>
+      {console.log("DDD",data)}
     </Layout>
   )
 }

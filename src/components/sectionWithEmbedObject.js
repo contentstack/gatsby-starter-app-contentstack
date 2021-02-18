@@ -6,41 +6,10 @@ const SectionWithEmbedObject = ({ data }) => {
   if (data.section_with_embed_object.embed_object_alignment === "Left") {
     return (
       <>
-        <div className="container">
-          <div className="column-left">
-            {data.section_with_embed_object.embed_object ? (
-              <div>
-                {ReactHtmlParser(data.section_with_embed_object.embed_object)}
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="column-right map-text">
-            <div className="section">
-              {data.section_with_embed_object.title ? (
-                <h2>{data.section_with_embed_object.title}</h2>
-              ) : (
-                ""
-              )}
-              {data.section_with_embed_object.description ? (
-                <p>{data.section_with_embed_object.description}</p>
-              ) : (
-                ""
-              )}
-            </div>
-          </div>
-        </div>
-      </>
-    )
-  }
-  return (
-    <>
-      <div className="container">
-        <div className="column-left">
-          <div className="section">
+        <div class="contact-page-section">
+          <div class="contact-page-content">
             {data.section_with_embed_object.title ? (
-              <h2>{data.section_with_embed_object.title}</h2>
+              <h1>{data.section_with_embed_object.title}</h1>
             ) : (
               ""
             )}
@@ -48,17 +17,38 @@ const SectionWithEmbedObject = ({ data }) => {
               <p>{data.section_with_embed_object.description}</p>
             ) : (
               ""
+            )}{" "}
+          </div>
+          <div class="contact-page-form">
+            {data.section_with_embed_object.embed_object ? (
+              <>
+                {ReactHtmlParser(data.section_with_embed_object.embed_object)}
+              </>
+            ) : (
+              ""
             )}
           </div>
         </div>
-        <div className="column-right">
-          {data.section_with_embed_object.embed_object ? (
-            <div>
-              {ReactHtmlParser(data.section_with_embed_object.embed_object)}
-            </div>
+      </>
+    )
+  }
+  return (
+    <>
+      <div class="contact-maps-section">
+        <div class="maps-details">
+          {ReactHtmlParser(data.section_with_embed_object.embed_object)}
+        </div>
+        <div class="contact-maps-content">
+          {data.section_with_embed_object.title ? (
+            <h2>{data.section_with_embed_object.title}</h2>
           ) : (
             ""
           )}
+          {data.section_with_embed_object.description ? (
+            <p>{data.section_with_embed_object.description}</p>
+          ) : (
+            ""
+          )}{" "}
         </div>
       </div>
     </>

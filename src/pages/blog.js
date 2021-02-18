@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import ReactHtmlParser from "react-html-parser"
+import moment from 'moment';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroBanner from "../components/blogBanner"
@@ -13,49 +14,48 @@ const Blog = ({ data }) => (
     <div className="blog-container">
       <div className="blog-column-left">
         {data.allContentstackBlogPost.nodes.map((blog, index) => {
-          return (   
-              <a href={blog.url} key={index}>
-                <div className="blog-list">
-                  {blog.featured_image ? (
-                    <img className="blog-img" src={blog.featured_image.url} />
-                  ) : (
-                    ""
-                  )}
-                  <div className="blog-content">
-                    {blog.title ? (
-                      <h2 className="blog-content-h2">{blog.title}</h2>
-                    ) : (
-                      ""
-                    )}
-                    {blog.body ? (
-                      <p className="blog-content-p">
-                        {ReactHtmlParser(blog.body.slice(0, 300))}
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                    {blog.url ? (
-                      <span className="blog-list-cta">
-                        Read More..
-                      </span>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </div>
-              </a>
-          
+          return (
+            <div className="blog-list">
+              {blog.featured_image ? (
+                <a href={blog.url}>
+                  <img alt="blog img" src={blog.featured_image.url} />
+                </a>
+              ) : (
+                ""
+              )}
+              <div className="blog-content">
+                {blog.title ? <h3>{blog.title}</h3> : ""}
+                <p>
+                {moment(blog.date).format("ddd, MMM D YYYY")},  <strong>{blog.author[0].title}</strong>
+                </p>
+                {blog.body ? (
+                  <p>{ReactHtmlParser(blog.body.slice(0, 300))}</p>
+                ) : (
+                  ""
+                )}
+                {blog.url ? (
+                  <a href={blog.url}>
+                    <span>Read more --></span>
+                  </a>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
           )
         })}
       </div>
       <div className="blog-column-right">
-        <div className="blog-lib">
-          <h1>{data.allContentstackPage.nodes[0].page_components[1].widget.title_h2}</h1>
-          <FromBlog />
-        </div>
+        <h2>
+          {data.allContentstackPage.nodes[0].page_components[1].widget.title_h2}
+        </h2>
+        <FromBlog />
       </div>
-    </div>
+    </div>{
+      console.log(data,"hi")
+    }
   </Layout>
+  
 )
 
 export const pageQuery = graphql`
@@ -175,10 +175,9 @@ export const pageQuery = graphql`
             description
           }
 
-          widget{
+          widget {
             title_h2
             type
-
           }
         }
       }
@@ -189,6 +188,10 @@ export const pageQuery = graphql`
         url
         title
         uid
+        author{
+          title
+        }
+        date
         featured_image {
           url
         }
