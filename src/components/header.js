@@ -36,16 +36,16 @@ const Header = () => {
     <header>
       {data.contentstackHeader.notification_bar.show_announcement ? (
         <div className="note-div">
-          <p className="note-display">
+          {/* <p className="note-display"> */}
             {ReactHtmlParser(
               data.contentstackHeader.notification_bar.announcement_text
             )}
-          </p>
+          {/* </p> */}
         </div>
       ) : (
         ""
       )}
-      <div className="max-width">
+      <div className="max-width header-div">
         <div className="wrapper-logo">
           <Link to="/" className="logo-tag" title="Contentstack">
             <img

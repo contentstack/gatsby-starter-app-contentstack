@@ -10,7 +10,7 @@ const BlogSection = ({ data }) => {
         {data.from_blog.view_articles ? (
           <Link
             to={data.from_blog.view_articles.href}
-            className="secondary-btn article-btn"
+            className="btn secondary-btn article-btn"
           >
             {data.from_blog.view_articles.title}
           </Link>
