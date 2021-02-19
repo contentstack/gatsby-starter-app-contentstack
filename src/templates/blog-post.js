@@ -13,6 +13,7 @@ import FromBlog from "../components/fromBlog"
 import HeroBanner from "../components/blogBanner"
 
 export default function blogPost({ data }) {
+  console.log(data);
   return (
     <Layout>
       <SEO title="Home" />

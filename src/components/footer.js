@@ -87,11 +87,11 @@ const Footer = () => {
               )}
             </div>
           </div>
-          <div className="copyright">
-            {data.contentstackFooter.copyright
-              ? ReactHtmlParser(data.contentstackFooter.copyright)
-              : ""}
-          </div>
+        </div>
+        <div className="copyright">
+          {data.contentstackFooter.copyright
+            ? ReactHtmlParser(data.contentstackFooter.copyright)
+            : ""}
         </div>
       </footer>
     </>
