@@ -11,11 +11,9 @@ const SectionWithEmbedObject = ({ data }) => {
           ) : (
             ""
           )}
-          {data.section_with_embed_object.description ? (
-            <p>{data.section_with_embed_object.description}</p>
-          ) : (
-            ""
-          )}{" "}
+          {data.section_with_embed_object.description
+            ? ReactHtmlParser(data.section_with_embed_object.description)
+            : ""}{" "}
         </div>
         <div className="contact-page-form">
           {data.section_with_embed_object.embed_object ? (
@@ -28,25 +26,21 @@ const SectionWithEmbedObject = ({ data }) => {
     )
   }
   return (
-
-      <div className="contact-maps-section max-width">
-        <div className="maps-details">
-          {ReactHtmlParser(data.section_with_embed_object.embed_object)}
-        </div>
-        <div className="contact-maps-content">
-          {data.section_with_embed_object.title ? (
-            <h2>{data.section_with_embed_object.title}</h2>
-          ) : (
-            ""
-          )}
-          {data.section_with_embed_object.description ? (
-            <p>{data.section_with_embed_object.description}</p>
-          ) : (
-            ""
-          )}{" "}
-        </div>
+    <div className="contact-maps-section max-width">
+      <div className="maps-details">
+        {ReactHtmlParser(data.section_with_embed_object.embed_object)}
       </div>
-
+      <div className="contact-maps-content">
+        {data.section_with_embed_object.title ? (
+          <h2>{data.section_with_embed_object.title}</h2>
+        ) : (
+          ""
+        )}
+        {data.section_with_embed_object.description
+          ? ReactHtmlParser(data.section_with_embed_object.description)
+          : ""}{" "}
+      </div>
+    </div>
   )
 }
 

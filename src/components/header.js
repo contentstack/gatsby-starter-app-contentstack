@@ -36,9 +36,9 @@ const Header = () => {
     <header>
       {data.contentstackHeader.notification_bar.show_announcement ? (
         <div className="note-div">
-            {ReactHtmlParser(
-              data.contentstackHeader.notification_bar.announcement_text
-            )}
+          {ReactHtmlParser(
+            data.contentstackHeader.notification_bar.announcement_text
+          )}
         </div>
       ) : (
         ""
@@ -52,6 +52,11 @@ const Header = () => {
               alt="Contentstack logo"
             />
           </Link>
+        </div>
+        <div className="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
         </div>
         <nav>
           <ul className="nav-ul header-ul">

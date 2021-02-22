@@ -4,20 +4,23 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SectionWithEmbedObject from "../components/sectionWithEmbedObject"
 
-const Contact = ({ data }) => (
-  <Layout>
-    <SEO title="Contact" />
-    {data.allContentstackPage.nodes[0].page_components
-      ? data.allContentstackPage.nodes[0].page_components.map(
-          (component, index) => {
-            if (component["section_with_embed_object"]) {
-              return <SectionWithEmbedObject data={component} key={index} />
+const Contact = ({ data }) => {
+  console.log(data)
+  return (
+    <Layout>
+      <SEO title="Contact" />
+      {data.allContentstackPage.nodes[0].page_components
+        ? data.allContentstackPage.nodes[0].page_components.map(
+            (component, index) => {
+              if (component["section_with_embed_object"]) {
+                return <SectionWithEmbedObject data={component} key={index} />
+              }
             }
-          }
-        )
-      : ""}
-  </Layout>
-)
+          )
+        : ""}
+    </Layout>
+  )
+}
 
 export const pageQuery = graphql`
   query {
