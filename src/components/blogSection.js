@@ -34,7 +34,7 @@ const BlogSection = ({ data }) => {
               <div className="featured-content">
                 {blog.title ? <h3>{blog.title}</h3> : ""}
                 {blog.body ? (
-                  <p>{ReactHtmlParser(blog.body.slice(0, 500) + "...")}</p>
+                  <p>{ReactHtmlParser(blog.body)}</p>
                 ) : (
                   ""
                 )}

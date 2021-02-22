@@ -87,6 +87,22 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="col-quarter social-link">
+        <div className="social-nav">
+          {data.contentstackFooter.social.social_share.map((social, index) => {
+            return (
+              <a
+                href={social.link.href}
+                title={social.link.title.toLowerCase()}
+                key={index}
+                className="footer-social-links"
+              >
+                <img src={social.icon.url} />
+              </a>
+            )
+          })}
+        </div>
+      </div>
       <div className="copyright">
         {data.contentstackFooter.copyright
           ? ReactHtmlParser(data.contentstackFooter.copyright)
