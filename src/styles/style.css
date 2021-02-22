@@ -309,7 +309,7 @@ footer a {
   justify-content: center;
 }
 
-.blog-container .blog-list {
+.blog-list {
   display: flex;
   border: 2px solid #dacccc33;
   border-radius: 3px;
@@ -829,11 +829,37 @@ footer a {
 /* media queries two for ipad  */
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+  .btn {
+    border: none;
+    font-size: 14px;
+    line-height: 18px;
+    border-radius: 2px;
+    letter-spacing: 0.3px;
+    padding: 11px 17px;
+  }
+  .secondary-btn {
+    border: 1px solid #715cdd;
+    color: #715cdd;
+  }
+
   body h1 {
     font-weight: bold;
     font-size: 28px;
     line-height: 34px;
     letter-spacing: 0.1px;
+  }
+
+  body h2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+  }
+
+  body h3 {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
   }
 
   header nav {
@@ -847,11 +873,19 @@ footer a {
     background: #715cdd;
     padding: 63px;
     color: #fff;
-    flex: none;
+    flex-wrap: nowrap;
+  }
+
+  .hero-description {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.3px;
+    margin-bottom: 40px;
   }
 
   .home-content {
     width: 50%;
+    margin-top: 12px;
   }
 
   .hero-banner > img {
@@ -871,4 +905,112 @@ footer a {
   .home-advisor-section > img {
     width: 50%;
   }
+
+  .member-section {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 27px;
+    text-align: center;
+    margin-top: 43px;
+    flex-wrap: nowrap;
+  }
+
+  .home-featured-blogs {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    text-align: left;
+    flex-wrap: nowrap;
+  }
+  .featured-blog {
+    width: 335px;
+    border: #f7f5f5 solid;
+    margin: 4px 14px;
+  }
+  .featured-blog > img {
+    max-width: 100%;
+    height: 260px;
+    object-fit: cover;
+  }
+  .featured-content > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+  .demo-section {
+    display: flex;
+    justify-content: center;
+    background: #f7f7f7;
+    padding: 60px 0px;
+    flex-wrap: nowrap;
+  }
+  .cards {
+    width: 334px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 15px;
+    margin-left: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .home-content p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .mission-content-section {
+    display: block;
+    text-align: center;
+  }
+  .mission-icon {
+    padding: 0;
+  }
+
+  .team-details > p {
+    margin-top: -10px;
+    margin-bottom: 50px;
+  }
+
+  .contact-maps-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 45px 0;
+}
+
+.maps-details>img{
+  max-width: 100%;
+}
+
+.contact-maps-content {
+  width: 50%;
+  padding: 0px 47px 1px 52px;
+  margin-top: 0;
+}
+
+.blog-column-left{
+  width: 50%;
+}
+
+.blog-column-right{
+  width:50%
+}
+.blog-list {
+  display: block;
+  border: 2px solid #dacccc33;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.blog-container {
+  margin: 0 auto;
+  margin-top: 53px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
 }

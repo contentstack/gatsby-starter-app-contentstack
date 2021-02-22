@@ -45,17 +45,17 @@ const Footer = () => {
   return (
     <>
       <footer>
+        <div className="col-quarter">
+          <Link to="/" className="logo-tag">
+            <img
+              src={data.contentstackFooter.logo.url}
+              alt="contentstack logo"
+              title="Contentstack"
+              className="logo footer-logo"
+            />
+          </Link>
+        </div>
         <div className="max-width footer-div">
-          <div className="col-quarter">
-            <Link to="/" className="logo-tag">
-              <img
-                src={data.contentstackFooter.logo.url}
-                alt="contentstack logo"
-                title="Contentstack"
-                className="logo footer-logo"
-              />
-            </Link>
-          </div>
           <div className="col-half">
             <nav>
               <ul className="nav-ul">
