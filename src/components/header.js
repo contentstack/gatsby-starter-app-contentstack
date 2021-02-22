@@ -36,11 +36,9 @@ const Header = () => {
     <header>
       {data.contentstackHeader.notification_bar.show_announcement ? (
         <div className="note-div">
-          {/* <p className="note-display"> */}
             {ReactHtmlParser(
               data.contentstackHeader.notification_bar.announcement_text
             )}
-          {/* </p> */}
         </div>
       ) : (
         ""
@@ -56,7 +54,7 @@ const Header = () => {
           </Link>
         </div>
         <nav>
-          <ul className="nav-ul">
+          <ul className="nav-ul header-ul">
             {data.contentstackHeader.navigation_menu.map((menu, index) => {
               return (
                 <li className="nav-li" key={index}>

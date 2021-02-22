@@ -124,6 +124,7 @@ header {
   z-index: 9;
 }
 
+
 header .max-width {
   display: -webkit-box;
   display: -webkit-flex;
@@ -158,12 +159,25 @@ header nav {
   text-align: right;
 }
 
+.header-ul{
+  overflow: hidden;
+}
+
 header nav li a {
-  display: inline-block;
+  float: left;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+header nav li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.header-ul .hamburger-icon {
+  display: none;
 }
 
 header nav li a.active {
-  font-weight: 700;
   color: #0000b4;
 }
 
@@ -796,5 +810,28 @@ footer a {
   }
   .maps-details {
     overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 375px){
+  .footer-div{
+    flex-direction: column;
+  }
+  .col-half{
+    padding: 0px;
+    margin: 0px;
+  }
+  .col-quarter{
+    padding: 15px 0;
+  }
+  .nav-ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    margin: 0px;
+  }
+  nav ul li {
+    padding: 15px 0;
   }
 }
