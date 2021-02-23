@@ -57,8 +57,9 @@ const Header = () => {
         <label class="menu-icon" for="menu-btn">
           <span class="navicon"></span>
         </label>
-        <nav>
-          <ul className="nav-ul header-ul menu">
+        
+        <nav className="menu">
+          <ul className="nav-ul header-ul">
             {data.contentstackHeader.navigation_menu.map((menu, index) => {
               return (
                 <li className="nav-li" key={index}>

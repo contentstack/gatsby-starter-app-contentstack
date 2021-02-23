@@ -151,7 +151,6 @@ header .wrapper-logo img {
 }
 
 header nav {
-  display: none;
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 100%;
   -ms-flex: 1 1 100%;
@@ -678,10 +677,6 @@ footer a {
   border: none;
 }
 
-/* .text-field {
-  padding: 10px 15px;
-  margin: 16px 0px;
-} */
 
 .text-field input {
   width: 90%;
@@ -712,6 +707,10 @@ footer a {
 
 .error-page {
   text-align: center;
+}
+
+.header .menu-btn {
+  display: none;
 }
 
 /* media queries one iphone x /all phone */
@@ -748,7 +747,7 @@ footer a {
 
   .header li a {
     display: block;
-    padding: 20px 20px;
+    padding: 0 20px;
     border-right: 1px solid #f4f4f4;
     text-decoration: none;
   }
@@ -763,9 +762,24 @@ footer a {
   .header .menu {
     clear: both;
     max-height: 0;
+    overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
 
+  .header .header-div {
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+  }
+  .header .wrapper-logo {
+    float: left;
+    margin-left: 15px;
+  }
+
+  .menu-icon {
+    float: right;
+    margin-top: 2px;
+  }
   /* menu icon */
 
   .header .menu-icon {
@@ -805,14 +819,9 @@ footer a {
     top: -5px;
   }
 
-  /* menu btn */
-
-  .header .menu-btn {
-    display: none;
-  }
-
-  .header .menu-btn:checked ~ .menu {
+  .header .menu-btn:checked ~ nav {
     max-height: 240px;
+    overflow: auto;
   }
 
   .header .menu-btn:checked ~ .menu-icon .navicon {
