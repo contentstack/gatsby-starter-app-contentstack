@@ -608,6 +608,8 @@ footer a {
 
 .error-page {
   text-align: center;
+  min-height: 400px;
+  padding-top: 80px;
 }
 
 .header .menu-btn {
