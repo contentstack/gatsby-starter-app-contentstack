@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Hero from "../components/hero"
-import Section from "../components/section"
-import AboutSectionBucket from "../components/aboutSectionBucket"
-import TeamSection from "../components/teamSection"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import Hero from "../components/Hero"
+import Section from "../components/Section"
+import AboutSectionBucket from "../components/AboutSectionBucket"
+import TeamSection from "../components/TeamSection"
 
 const About = ({ data }) => (
   <Layout>

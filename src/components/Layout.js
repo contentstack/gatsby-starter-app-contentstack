@@ -5,14 +5,14 @@
  */
 
 import React from "react"
-import Header from "./header"
-import Footer from "./footer"
+import Header from "./Header"
+import Footer from "./Footer"
 import "../styles/style.css"
 
 const Layout = props => {
   return (
     <>
-      <Header />
+      <Header property={props.property} />
       <main>{props.children}</main>
       <Footer />
     </>

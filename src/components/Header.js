@@ -30,8 +30,9 @@ const queryHeader = () => {
   return data
 }
 
-const Header = () => {
+const Header = props => {
   let data = queryHeader()
+  console.log(props, "props")
   return (
     <header className="header">
       {data.contentstackHeader.notification_bar.show_announcement ? (
@@ -57,13 +58,21 @@ const Header = () => {
         <label class="menu-icon" for="menu-btn">
           <span class="navicon"></span>
         </label>
-        
+
         <nav className="menu">
           <ul className="nav-ul header-ul">
             {data.contentstackHeader.navigation_menu.map((menu, index) => {
+              console.log(menu)
               return (
                 <li className="nav-li" key={index}>
-                  <Link to={menu.page_reference[0].url}>{menu.label}</Link>
+                  {console.log("lls",props.property)}
+                  {props.property.uri.includes(menu.page_reference[0].url)  ? (
+                    <Link className="active" to={menu.page_reference[0].url}>
+                      {menu.label}
+                    </Link>
+                  ) : (
+                    <Link to={menu.page_reference[0].url}>{menu.label}</Link>
+                  )}
                 </li>
               )
             })}
