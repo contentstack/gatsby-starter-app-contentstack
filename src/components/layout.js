@@ -7,6 +7,7 @@
 import React from "react"
 import Header from "./header"
 import Footer from "./footer"
+import "../styles/third-party.css"
 import "../styles/style.css"
 
 const Layout = props => {
