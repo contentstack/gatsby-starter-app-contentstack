@@ -151,7 +151,6 @@ header .wrapper-logo img {
 }
 
 header nav {
-  display: none;
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 100%;
   -ms-flex: 1 1 100%;
@@ -678,10 +677,6 @@ footer a {
   border: none;
 }
 
-/* .text-field {
-  padding: 10px 15px;
-  margin: 16px 0px;
-} */
 
 .text-field input {
   width: 90%;
@@ -714,13 +709,13 @@ footer a {
   text-align: center;
 }
 
+.header .menu-btn {
+  display: none;
+}
+
 /* media queries one iphone x /all phone */
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  .hamburger-icon {
-    float: right;
-    display: block;
-  }
   .footer-div {
     flex-direction: column;
   }
@@ -731,6 +726,9 @@ footer a {
   .col-quarter {
     padding: 15px 0;
   }
+  .footer-nav-li {
+    padding: 7px;
+  }
   .nav-ul {
     display: flex;
     flex-direction: column;
@@ -738,6 +736,111 @@ footer a {
     padding: 0px;
     margin: 0px;
   }
+
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  .header li a {
+    display: block;
+    padding: 0 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+
+  /* menu */
+
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .header .header-div {
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+  }
+  .header .wrapper-logo {
+    float: left;
+    margin-left: 15px;
+  }
+
+  .menu-icon {
+    float: right;
+    margin-top: 2px;
+  }
+  /* menu icon */
+
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+  }
+
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+  }
+
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+
+  .header .menu-btn:checked ~ nav {
+    max-height: 240px;
+    overflow: auto;
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+
   nav ul li {
     padding: 15px 0;
   }
@@ -762,18 +865,42 @@ footer a {
   }
   .btn {
     border: none;
+    display: block;
+    text-align: center;
     font-size: 12px;
     line-height: 18px;
     border-radius: 2px;
     letter-spacing: 0.3px;
     padding: 8px 21px;
   }
+
+  .secondary-btn {
+    border: 1px solid #715cdd;
+    color: #715cdd;
+  }
+  .hero-banner {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: left;
+    background: #715cdd;
+    padding: 28px;
+    color: #fff;
+    flex-wrap: wrap;
+  }
+
+  .home-advisor-section {
+    background: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: left;
+    padding: 28px;
+    margin: 0;
+    flex-wrap: wrap-reverse;
+  }
   .blog-page-content {
     color: #fff;
-    text-align: center;
-    display: inline-block;
-    padding: 58px 0px 58px 0px;
-    width: 200px;
+    text-align: left;
+    width: 90%;
   }
   .blog-list > img {
     max-width: 100%;
@@ -781,15 +908,29 @@ footer a {
   .blog-list-img {
     margin: auto;
   }
-  .blog-container .blog-list {
-    border: 2px solid #dacccc33;
-    border-radius: 3px;
+
+  .blog-list > a {
+    width: 100%;
+  }
+
+  .blog-column-left {
+    padding: 0;
+  }
+  .blog-column-right {
+    background: #f2f2f2;
+    padding: 17px;
+    height: fit-content;
+  }
+  .blog-list {
     display: contents;
-    margin-bottom: 12px;
+  }
+
+  .blog-content {
+    width: auto;
   }
   .hero-banner > img {
     max-width: 100%;
-    margin: 27px 49px 0px 0px;
+    margin-top: 40px;
   }
   .home-content {
     text-align: left;
@@ -798,11 +939,32 @@ footer a {
   }
   .home-advisor-section > img {
     max-width: 100%;
-    margin: 27px 49px 0px 0px;
+    margin-top: 40px;
   }
+
   .featured-blog {
     width: 90%;
     margin: 5px auto;
+  }
+
+  .community-head {
+    padding: 19px;
+    display: block;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .community-head a {
+    display: block;
+    margin: auto 0 auto 0;
+  }
+
+  .home-featured-blogs {
+    display: flex;
+    padding: 0 5px 27px;
+    justify-content: center;
+    text-align: left;
+    flex-wrap: wrap;
   }
   .featured-blog > img {
     width: 100%;
@@ -816,15 +978,20 @@ footer a {
     margin-top: 14px;
   }
   .cards {
-    width: 260px;
     background: #ffffff;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
     border-radius: 5px;
     padding: 22px;
     display: flex;
-    margin-left: -5px;
-    margin-bottom: 15px;
+    margin: 16px 17px 15px 17px;
+    max-width: 100%;
+  }
+
+  .mission-icon {
+    margin-top: 12px;
+    display: inline-block;
+    padding: 0;
   }
   .mission-content-top {
     display: flex;
@@ -840,26 +1007,32 @@ footer a {
   }
   .mission-content-section {
     width: 313px;
+    display: inline-block;
+    text-align: center;
   }
   .story-advisor-section > img {
     max-width: 100%;
   }
   .team-head-section {
     padding-top: 64px;
-    width: 353px;
     margin: auto;
+    width: 90%;
+  }
+  .blog-list {
+    display: block;
+    border: 2px solid #dacccc33;
+    border-radius: 3px;
+    margin-bottom: 12px;
   }
   .contact-page-content {
-    max-width: 90%;
     width: auto;
     padding: 55px 0;
+    text-align: left;
   }
   .blog-container {
     padding: 26px;
   }
-  .blog-column-right {
-    padding: 0;
-  }
+
   .contact-page-form {
     width: 100%;
   }
@@ -1009,6 +1182,11 @@ footer a {
   .team-details > p {
     margin-top: -10px;
     margin-bottom: 50px;
+  }
+
+  .team-head-section {
+    margin: auto;
+    width: 79%;
   }
   .contact-maps-section {
     display: flex;

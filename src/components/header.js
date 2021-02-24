@@ -33,7 +33,7 @@ const queryHeader = () => {
 const Header = () => {
   let data = queryHeader()
   return (
-    <header>
+    <header className="header">
       {data.contentstackHeader.notification_bar.show_announcement ? (
         <div className="note-div">
           {ReactHtmlParser(
@@ -53,12 +53,12 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-        </div>
-        <nav>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn">
+          <span class="navicon"></span>
+        </label>
+        
+        <nav className="menu">
           <ul className="nav-ul header-ul">
             {data.contentstackHeader.navigation_menu.map((menu, index) => {
               return (
