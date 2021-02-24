@@ -12,7 +12,7 @@ import "../styles/style.css"
 const Layout = props => {
   return (
     <>
-      <Header />
+      <Header property={props.property} />
       <main>{props.children}</main>
       <Footer />
     </>

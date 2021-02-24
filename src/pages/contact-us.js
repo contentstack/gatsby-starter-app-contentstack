@@ -4,10 +4,11 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import SectionWithEmbedObject from "../components/SectionWithEmbedObject"
 
-const Contact = ({ data }) => {
-  console.log(data)
+const Contact = (props) => {
+  let { data } = props
+  console.log("data", props)
   return (
-    <Layout>
+    <Layout property={props}>
       <SEO title="Contact" />
       {data.allContentstackPage.nodes[0].page_components
         ? data.allContentstackPage.nodes[0].page_components.map(
