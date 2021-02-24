@@ -7,61 +7,67 @@ import SEO from "../components/SEO"
 import HeroBanner from "../components/BlogBanner"
 import FromBlog from "../components/FromBlog"
 
-const Blog = ({ data }) => (
-  <Layout>
-    <SEO title="Blog" />
-    <HeroBanner />
-    <div className="blog-container">
-      <div className="blog-column-left">
-        {data.allContentstackBlogPost.nodes.map((blog, index) => {
-          return (
-            <div className="blog-list" key={index}>
-              {blog.featured_image && (
-                <Link href={blog.url}>
-                  <img
-                    alt="blog img"
-                    className="blog-list-img"
-                    src={blog.featured_image.url}
-                  />
-                </Link>
-              )}
-              <div className="blog-content">
-                {blog.title && (
+const Blog = props => {
+  let { data } = props
+  return (
+    <Layout property={props}>
+      <SEO title="Blog" />
+      <HeroBanner />
+      <div className="blog-container">
+        <div className="blog-column-left">
+          {data.allContentstackBlogPost.nodes.map((blog, index) => {
+            return (
+              <div className="blog-list" key={index}>
+                {blog.featured_image && (
                   <Link to={blog.url}>
-                    <h3>{blog.title}</h3>
+                    <img
+                      alt="blog img"
+                      className="blog-list-img"
+                      src={blog.featured_image.url}
+                    />
                   </Link>
                 )}
-                <p>
-                  {moment(blog.date).format("ddd, MMM D YYYY")},{" "}
-                  <strong>{blog.author[0].title}</strong>
-                </p>
-                {blog.body ? (
-                  <p>{ReactHtmlParser(blog.body.slice(0, 300))}</p>
-                ) : (
-                  ""
-                )}
-                {blog.url ? (
-                  <Link href={blog.url}>
-                    <span>{"Read more -->"}</span>
-                  </Link>
-                ) : (
-                  ""
-                )}
+                <div className="blog-content">
+                  {blog.title && (
+                    <Link to={blog.url}>
+                      <h3>{blog.title}</h3>
+                    </Link>
+                  )}
+                  <p>
+                    {moment(blog.date).format("ddd, MMM D YYYY")},{" "}
+                    <strong>{blog.author[0].title}</strong>
+                  </p>
+                  {blog.body ? (
+                    <p>{ReactHtmlParser(blog.body.slice(0, 300))}</p>
+                  ) : (
+                    ""
+                  )}
+                  {blog.url ? (
+                    <Link to={blog.url}>
+                      <span>{"Read more -->"}</span>
+                    </Link>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
+        <div className="blog-column-right">
+          <h2>
+            {
+              data.allContentstackPage.nodes[0].page_components[1].widget
+                .title_h2
+            }
+          </h2>
+          <FromBlog />
+        </div>
       </div>
-      <div className="blog-column-right">
-        <h2>
-          {data.allContentstackPage.nodes[0].page_components[1].widget.title_h2}
-        </h2>
-        <FromBlog />
-      </div>
-    </div>
-    {}
-  </Layout>
-)
+      {}
+    </Layout>
+  )
+}
 
 export const pageQuery = graphql`
   query {

@@ -6,7 +6,6 @@ import SectionWithEmbedObject from "../components/SectionWithEmbedObject"
 
 const Contact = (props) => {
   let { data } = props
-  console.log("data", props)
   return (
     <Layout property={props}>
       <SEO title="Contact" />

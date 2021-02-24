@@ -1,10 +1,6 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import ReactHtmlParser, {
-  processNodes,
-  convertNodeToElement,
-  htmlparser2,
-} from "react-html-parser"
+import { graphql } from "gatsby"
+import ReactHtmlParser from "react-html-parser"
 import moment from "moment"
 
 import Layout from "../components/Layout"
@@ -12,10 +8,10 @@ import SEO from "../components/SEO"
 import FromBlog from "../components/FromBlog"
 import HeroBanner from "../components/BlogBanner"
 
-export default function blogPost({ data }) {
-  console.log(data);
+export default function blogPost(props) {
+  let {data} = props
   return (
-    <Layout>
+    <Layout property={props}>
       <SEO title="Home" />
       <HeroBanner />
       <div className="blog-container">
@@ -42,7 +38,6 @@ export default function blogPost({ data }) {
           </div>
         </div>
       </div>
-      {console.log("DDD", data)}
     </Layout>
   )
 }

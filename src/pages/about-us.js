@@ -7,31 +7,34 @@ import Section from "../components/Section"
 import AboutSectionBucket from "../components/AboutSectionBucket"
 import TeamSection from "../components/TeamSection"
 
-const About = ({ data }) => (
-  <Layout>
-    <SEO title="About" />
-    <div className="about">
-      {data.allContentstackPage.nodes[0].page_components
-        ? data.allContentstackPage.nodes[0].page_components.map(
-            (component, index) => {
-              if (component["hero_banner"]) {
-                return <Hero data={component} about key={index} />
+const About = props => {
+  let { data } = props
+  return (
+    <Layout property={props}>
+      <SEO title="About" />
+      <div className="about">
+        {data.allContentstackPage.nodes[0].page_components
+          ? data.allContentstackPage.nodes[0].page_components.map(
+              (component, index) => {
+                if (component["hero_banner"]) {
+                  return <Hero data={component} about key={index} />
+                }
+                if (component["section"]) {
+                  return <Section data={component} key={index} />
+                }
+                if (component["section_with_buckets"]) {
+                  return <AboutSectionBucket data={component} key={index} />
+                }
+                if (component["our_team"]) {
+                  return <TeamSection data={component} key={index} />
+                }
               }
-              if (component["section"]) {
-                return <Section data={component} key={index} />
-              }
-              if (component["section_with_buckets"]) {
-                return <AboutSectionBucket data={component} key={index} />
-              }
-              if (component["our_team"]) {
-                return <TeamSection data={component} key={index} />
-              }
-            }
-          )
-        : ""}
-    </div>
-  </Layout>
-)
+            )
+          : ""}
+      </div>
+    </Layout>
+  )
+}
 
 export const pageQuery = graphql`
   query {

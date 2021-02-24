@@ -9,9 +9,8 @@ import CardSection from "../components/CardSection"
 
 const Home = props => {
   let { data } = props
-  console.log("data", props)
   return (
-    <Layout props={props}>
+    <Layout property={props}>
       <SEO title="Home" />
       {data.allContentstackPage.nodes[0].page_components
         ? data.allContentstackPage.nodes[0].page_components.map(
