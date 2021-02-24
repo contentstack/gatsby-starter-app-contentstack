@@ -1,11 +1,11 @@
 import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Hero from "../components/hero"
-import Section from "../components/section"
-import SectionBucket from "../components/sectionBucket"
-import BlogSection from "../components/blogSection"
-import CardSection from "../components/cardSection"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import Hero from "../components/Hero"
+import Section from "../components/Section"
+import SectionBucket from "../components/SectionBucket"
+import BlogSection from "../components/BlogSection"
+import CardSection from "../components/CardSection"
 
 const Home = ({ data }) => (
   <Layout>

@@ -2,10 +2,10 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import ReactHtmlParser from "react-html-parser"
 import moment from "moment"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import HeroBanner from "../components/blogBanner"
-import FromBlog from "../components/fromBlog"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import HeroBanner from "../components/BlogBanner"
+import FromBlog from "../components/FromBlog"
 
 const Blog = ({ data }) => (
   <Layout>

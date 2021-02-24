@@ -7,10 +7,10 @@ import ReactHtmlParser, {
 } from "react-html-parser"
 import moment from "moment"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import FromBlog from "../components/fromBlog"
-import HeroBanner from "../components/blogBanner"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import FromBlog from "../components/FromBlog"
+import HeroBanner from "../components/BlogBanner"
 
 export default function blogPost({ data }) {
   console.log(data);
