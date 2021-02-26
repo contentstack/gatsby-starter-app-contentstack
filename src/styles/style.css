@@ -40,23 +40,6 @@ body p {
   max-width: 1280px;
 }
 
-.padding-top {
-  padding-top: 24px;
-}
-
-.padding-left {
-  padding-left: 24px;
-}
-
-.padding-bottom {
-  padding-bottom: 24px;
-}
-
-.padding-both {
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-
 .note-div {
   background: #f2efff;
 }

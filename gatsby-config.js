@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 // Module dependency
 
 require("dotenv").config({
@@ -37,7 +35,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "ContentStack-Gatsby-Starter-App",
+        name: "Contentstack-Gatsby-Starter-App",
         short_name: "starter",
         start_url: "/",
         background_color: "#663399",
