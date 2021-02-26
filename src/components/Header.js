@@ -53,7 +53,7 @@ const Header = props => {
           </Link>
         </div>
         <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label className="menu-icon" for="menu-btn">
+        <label className="menu-icon" htmlFor="menu-btn">
           <span className="navicon"></span>
         </label>
 

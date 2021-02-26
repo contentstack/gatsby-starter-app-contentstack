@@ -1,38 +1,20 @@
 import React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import Hero from "../components/Hero"
-import Section from "../components/Section"
-import SectionBucket from "../components/SectionBucket"
-import BlogSection from "../components/BlogSection"
-import CardSection from "../components/CardSection"
+import RenderComponents from "../components/RenderComponents"
 
 const Home = props => {
   let { data } = props
   return (
     <Layout property={props}>
       <SEO title="Home" />
-      {data.allContentstackPage.nodes[0].page_components
-        ? data.allContentstackPage.nodes[0].page_components.map(
-            (component, index) => {
-              if (component["hero_banner"]) {
-                return <Hero data={component} key={index} />
-              }
-              if (component["section"]) {
-                return <Section data={component} key={index} />
-              }
-              if (component["section_with_buckets"]) {
-                return <SectionBucket data={component} key={index} />
-              }
-              if (component["from_blog"]) {
-                return <BlogSection data={component} key={index} />
-              }
-              if (component["section_with_cards"]) {
-                return <CardSection data={component} key={index} />
-              }
-            }
-          )
-        : ""}
+      {data.allContentstackPage.nodes[0].page_components ? (
+        <RenderComponents
+          components={data.allContentstackPage.nodes[0].page_components}
+        />
+      ) : (
+        ""
+      )}
     </Layout>
   )
 }

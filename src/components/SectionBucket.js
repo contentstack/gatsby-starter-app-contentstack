@@ -24,11 +24,7 @@ const SectionBucket = ({ data }) => {
               {bucket.icon && <img src={bucket.icon.url} alt="bucket icon" />}
 
               {bucket.title_h3 ? <h3>{bucket.title_h3}</h3> : ""}
-              {bucket.description ? (
-                <p>{ReactHtmlParser(bucket.description)}</p>
-              ) : (
-                ""
-              )}
+              {bucket.description && ReactHtmlParser(bucket.description)}
               {bucket.call_to_action.title ? (
                 <Link
                   to={

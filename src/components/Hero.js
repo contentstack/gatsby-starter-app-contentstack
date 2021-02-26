@@ -10,14 +10,14 @@ const Hero = props => {
         background: data.hero_banner.bg_color ? data.hero_banner.bg_color : "",
       }}
     >
-      <div className={`${props.about ? "about" : "home"}-content`}>
+      <div className={`${props.title == "about" ? "about" : "home"}-content`}>
         {data.hero_banner.banner_title ? (
           <h1 className="hero-title">{data.hero_banner.banner_title}</h1>
         ) : (
           ""
         )}
         {data.hero_banner.banner_description ? (
-          <p className={`hero-description ${props.about && "about-desc"}`}>
+          <p className={`hero-description ${props.title == "about" && "about-desc"}`}>
             {data.hero_banner.banner_description}
           </p>
         ) : (

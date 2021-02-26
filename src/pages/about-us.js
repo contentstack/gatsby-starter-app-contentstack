@@ -2,10 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import Hero from "../components/Hero"
-import Section from "../components/Section"
-import AboutSectionBucket from "../components/AboutSectionBucket"
-import TeamSection from "../components/TeamSection"
+// import Hero from "../components/Hero"
+// import Section from "../components/Section"
+// import AboutSectionBucket from "../components/AboutSectionBucket"
+// import TeamSection from "../components/TeamSection"
+
+import RenderComponents from "../components/RenderComponents"
 
 const About = props => {
   let { data } = props
@@ -13,24 +15,12 @@ const About = props => {
     <Layout property={props}>
       <SEO title="About" />
       <div className="about">
-        {data.allContentstackPage.nodes[0].page_components
-          ? data.allContentstackPage.nodes[0].page_components.map(
-              (component, index) => {
-                if (component["hero_banner"]) {
-                  return <Hero data={component} about key={index} />
-                }
-                if (component["section"]) {
-                  return <Section data={component} key={index} />
-                }
-                if (component["section_with_buckets"]) {
-                  return <AboutSectionBucket data={component} key={index} />
-                }
-                if (component["our_team"]) {
-                  return <TeamSection data={component} key={index} />
-                }
-              }
-            )
-          : ""}
+        {data.allContentstackPage.nodes[0].page_components && (
+          <RenderComponents
+            components={data.allContentstackPage.nodes[0].page_components}
+            about
+          />
+        )}
       </div>
     </Layout>
   )

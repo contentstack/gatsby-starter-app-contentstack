@@ -2,22 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import SectionWithEmbedObject from "../components/SectionWithEmbedObject"
+// import SectionWithEmbedObject from "../components/SectionWithEmbedObject"
+import RenderComponents from "../components/RenderComponents"
 
-const Contact = (props) => {
+const Contact = props => {
   let { data } = props
   return (
     <Layout property={props}>
       <SEO title="Contact" />
-      {data.allContentstackPage.nodes[0].page_components
-        ? data.allContentstackPage.nodes[0].page_components.map(
-            (component, index) => {
-              if (component["section_with_embed_object"]) {
-                return <SectionWithEmbedObject data={component} key={index} />
-              }
-            }
-          )
-        : ""}
+      {data.allContentstackPage.nodes[0].page_components && (
+        <RenderComponents
+          components={data.allContentstackPage.nodes[0].page_components}
+        />
+      )}
     </Layout>
   )
 }
