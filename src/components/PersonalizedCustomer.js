@@ -15,8 +15,10 @@ const PersonalizedCustomer = props => {
     contentstackEntries
   )
   return (
-    <div className="personalized-customer">
-      <Personalize variations={contentstackVariations} component={Customer} />
+    <div className="member-main-section personalized-component">
+      <div className="member-head">
+        <Personalize variations={contentstackVariations} component={Customer} />
+      </div>
     </div>
   )
 }
