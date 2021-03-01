@@ -5,6 +5,11 @@
   "version": "1.0.0",
   "author": "Contentstack",
   "dependencies": {
+    "@uniformdev/cli": "^4.0.1",
+    "@uniformdev/optimize-tracker": "^4.0.1",
+    "@uniformdev/optimize-tracker-browser": "^4.0.1",
+    "@uniformdev/optimize-tracker-contentstack": "^4.0.1",
+    "@uniformdev/optimize-tracker-react": "^4.0.1",
     "depcheck": "^1.4.0",
     "dotenv": "^8.2.0",
     "gatsby": "^2.32.4",
@@ -15,6 +20,7 @@
     "gatsby-plugin-sitemap": "^2.12.0",
     "gatsby-source-contentstack": "^2.3.2",
     "moment": "^2.29.1",
+    "npm-run-all": "^4.1.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -27,12 +33,21 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "build:gatsby",
+    "develop": "develop:gatsby",
+    
+    "build:gatsby": "gatsby build",
+    "develop:gatsby": "gatsby develop",
+    
+    "build:uniform": "run-s generate:intents clean build:gatsby",
+    "develop:uniform": "run-s generate:intents develop:gatsby",    
+    
     "format": "prettier --write \"**/*.{js,css,html,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "ci:build": "run-s generate:intents clean build:gatsby",
+    "generate:intents": "uniform optimize manifest download --output ./src/lib/intentManifest.json --apiKey $UNIFORM_API_KEY"
   },
   "repository": {
     "type": "git",

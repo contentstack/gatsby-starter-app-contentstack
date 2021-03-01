@@ -1,0 +1,30 @@
+{
+  "site": {
+    "sampleSize": 0,
+    "intents": [
+      {
+        "id": "newCustomer",
+        "signals": [
+          {
+            "type": "BEH",
+            "freq": "always",
+            "scope": "visitor",
+            "str": 50
+          }
+        ]
+      },
+      {
+        "id": "existingCustomer",
+        "signals": [
+          {
+            "type": "BEH",
+            "freq": "always",
+            "scope": "visitor",
+            "str": 50
+          }
+        ]
+      }
+    ],
+    "attributes": []
+  }
+}

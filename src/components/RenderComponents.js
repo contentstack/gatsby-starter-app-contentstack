@@ -8,15 +8,21 @@ import TeamSection from "./TeamSection"
 import SectionBucket from "./SectionBucket"
 import AboutSectionBucket from "./AboutSectionBucket"
 import SectionWithEmbedObject from "./SectionWithEmbedObject"
+import PersonalizedCustomer from "./PersonalizedCustomer"
 
- const RenderComponents = props => {
+const RenderComponents = props => {
   const { components, about } = props
-  console.log(components);
+  console.log(components)
   return (
     <>
       {components?.map((component, index) => {
         if (component["hero_banner"]) {
-          return <Hero data={component} title={about?"about":""} key={index} />
+          return (
+            <Hero data={component} title={about ? "about" : ""} key={index} />
+          )
+        }
+        if (component["personalized_component"]) {
+          return <PersonalizedCustomer data={component} key={index} />
         }
         if (component["section"]) {
           return <Section data={component} key={index} />
@@ -37,8 +43,8 @@ import SectionWithEmbedObject from "./SectionWithEmbedObject"
           return <TeamSection data={component} key={index} />
         }
         if (component["section_with_buckets"]) {
-            return <AboutSectionBucket data={component} key={index} />
-          }
+          return <AboutSectionBucket data={component} key={index} />
+        }
       })}
     </>
   )

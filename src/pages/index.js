@@ -2,20 +2,26 @@ import React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import RenderComponents from "../components/RenderComponents"
+import { UniformTracker } from "@uniformdev/optimize-tracker-react"
+import { localTracker } from "../lib/local-tracker"
 
 const Home = props => {
   let { data } = props
+  const trackerInstance = localTracker
+
   return (
-    <Layout property={props}>
-      <SEO title="Home" />
-      {data.allContentstackPage.nodes[0].page_components ? (
-        <RenderComponents
-          components={data.allContentstackPage.nodes[0].page_components}
-        />
-      ) : (
-        ""
-      )}
-    </Layout>
+    <UniformTracker trackerInstance={trackerInstance}>
+      <Layout property={props}>
+        <SEO title="Home" />
+        {data.allContentstackPage.nodes[0].page_components ? (
+          <RenderComponents
+            components={data.allContentstackPage.nodes[0].page_components}
+          />
+        ) : (
+          ""
+        )}
+      </Layout>
+    </UniformTracker>
   )
 }
 
@@ -133,6 +139,22 @@ export const pageQuery = graphql`
             embed_object_alignment
             embed_object
             description
+          }
+          personalized_component {
+            reference {
+              customer_type {
+                title
+                description
+                unfrm_opt_intent_tag
+                internal {
+                  type
+                }
+                link {
+                  title
+                  href
+                }
+              }
+            }
           }
         }
       }

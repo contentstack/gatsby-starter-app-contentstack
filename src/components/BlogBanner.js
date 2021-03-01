@@ -1,5 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
+import { useBehaviorTracking } from "@uniformdev/optimize-tracker-react"
 
 const queryBlogBanner = () => {
   const data = useStaticQuery(graphql`
@@ -20,8 +21,13 @@ const queryBlogBanner = () => {
   return data
 }
 
-const blogHero = () => {
+const blogHero = ({ intentTags }) => {
   let data = queryBlogBanner()
+
+  if (intentTags) {
+    useBehaviorTracking(intentTags)
+  }
+
   return (
     <>
       <div className="blog-page-banner">
