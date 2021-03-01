@@ -344,6 +344,12 @@ footer a {
   margin-top: 43px;
 }
 
+.mission-content-bottom, .mission-content-top {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
 .member-main-section {
   background: #f7f7f7;
   margin: auto;
