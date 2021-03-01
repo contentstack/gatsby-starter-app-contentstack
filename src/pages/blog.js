@@ -1,140 +1,226 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import ReactHtmlParser, {
-  processNodes,
-  convertNodeToElement,
-  htmlparser2,
-} from "react-html-parser"
+import ReactHtmlParser from "react-html-parser"
+import moment from "moment"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import HeroBanner from "../components/BlogBanner"
+import FromBlog from "../components/FromBlog"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+const Blog = props => {
+  let { data } = props
+  let archived = [],
+    blogList = []
+  data.allContentstackBlogPost.nodes.forEach(blogs => {
+    if (blogs.is_archived) {
+      archived.push(blogs)
+    } else {
+      blogList.push(blogs)
+    }
+  })
 
-function dateSetter(params) {
-  const date = new Date(params)
-  const yy = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date)
-  const mm = new Intl.DateTimeFormat("en", { month: "short" }).format(date)
-  const dd = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date)
-  return `${mm}-${dd}-${yy}`
-}
-
-const Blog = ({ data }) => (
-  <Layout>
-    <SEO title="Blog" />
-    <main>
-      <div
-        class="hero short"
-        style={{
-          background: `url(${
-            data.allContentstackPage.nodes[0].page_components[0].hero_banner
-              .banner_image
-              ? data.allContentstackPage.nodes[0].page_components[0].hero_banner
-                  .banner_image.url
-              : ""
-          })`,
-        }}
-      >
-        <div class="max-width">
-          <div class="content">
-            <h1>{data.allContentstackPage.nodes[0].title}</h1>
-            <p>
-              {data.allContentstackPage.nodes[0].page_components[0].hero_banner
-                .banner_description
-                ? data.allContentstackPage.nodes[0].page_components[0]
-                    .hero_banner.banner_description
-                : ""}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="max-width blog-roll padding-top">
-        {data.allContentstackBlogPost.nodes.map(index => {
-          return (
-            <Link class="blog-entry padding-bottom" to={`/blog${index.url}`}>
-              <div class="thumb">
-                <img
-                  src="https://via.placeholder.com/200x140"
-                  alt="Blog Title"
-                />
-              </div>
-              <div class="content">
-                <div class="inner">
-                  <h3>{index.title}</h3>
-                  <cite>
-                    <span class="date">
-                      {dateSetter(index.date) ? dateSetter(index.date) : ""}
-                    </span>
-                    <span class="author">
-                      {index.author[0].title ? index.author[0].title : ""}
-                    </span>
-                  </cite>
-                  <p class="description">
-                    {ReactHtmlParser(index.body)
-                      ? ReactHtmlParser(index.body.slice(0, 210))
-                      : ""}
+  return (
+    <Layout property={props}>
+      <SEO title="Blog" />
+      <HeroBanner />
+      <div className="blog-container">
+        <div className="blog-column-left">
+          {blogList.map((blog, index) => {
+            return (
+              <div className="blog-list" key={index}>
+                {blog.featured_image && (
+                  <Link to={blog.url}>
+                    <img
+                      alt="blog img"
+                      className="blog-list-img"
+                      src={blog.featured_image.url}
+                    />
+                  </Link>
+                )}
+                <div className="blog-content">
+                  {blog.title && (
+                    <Link to={blog.url}>
+                      <h3>{blog.title}</h3>
+                    </Link>
+                  )}
+                  <p>
+                    {moment(blog.date).format("ddd, MMM D YYYY")},{" "}
+                    <strong>{blog.author[0].title}</strong>
                   </p>
-                  <p class="cta">Read More</p>
+                  {blog.body ? (
+                    <p>{ReactHtmlParser(blog.body.slice(0, 300))}</p>
+                  ) : (
+                    ""
+                  )}
+                  {blog.url ? (
+                    <Link to={blog.url}>
+                      <span>{"Read more -->"}</span>
+                    </Link>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
-            </Link>
-          )
-        })}
+            )
+          })}
+        </div>
+        <div className="blog-column-right">
+          <h2>
+            {
+              data.allContentstackPage.nodes[0].page_components[1].widget
+                .title_h2
+            }
+          </h2>
+          <FromBlog data={archived} />
+        </div>
       </div>
-    </main>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export const pageQuery = graphql`
   query {
-    allContentstackBlogPost {
+    allContentstackPage(filter: { title: { eq: "Blog" } }) {
       nodes {
-        url
         title
-        body
-        date
-        author {
-          bio
-          title
-          url
-          picture {
-            url
-            title
-          }
-        }
-        related_post {
-          url
-          title
-          author {
-            url
-            title
-            picture {
-              url
-              title
-              description
-            }
-          }
-        }
+        url
+        uid
         seo {
           enable_search_indexing
           keywords
           meta_description
           meta_title
         }
+        page_components {
+          contact_details {
+            address
+            email
+            phone
+          }
+          from_blog {
+            title_h2
+            featured_blogs {
+              title
+              uid
+              url
+              is_archived
+              featured_image {
+                title
+                url
+              }
+              body
+              author {
+                title
+                url
+                uid
+                bio
+              }
+            }
+            view_articles {
+              title
+              href
+            }
+          }
+          hero_banner {
+            banner_description
+            banner_title
+            bg_color
+            banner_image {
+              title
+              url
+            }
+            call_to_action {
+              title
+              href
+            }
+          }
+          our_team {
+            title_h2
+            description
+            employees {
+              name
+              designation
+              image {
+                title
+                url
+              }
+            }
+          }
+          rich_text {
+            rte
+          }
+          section {
+            title_h2
+            description
+            image {
+              title
+              url
+            }
+            image_alignment
+            call_to_action {
+              title
+              href
+            }
+          }
+          section_with_buckets {
+            title_h2
+            description
+            buckets {
+              title_h3
+              description
+              icon {
+                title
+                url
+              }
+              call_to_action {
+                title
+                href
+              }
+            }
+          }
+          section_with_cards {
+            cards {
+              title_h3
+              description
+              call_to_action {
+                title
+                href
+              }
+            }
+          }
+          section_with_embed_object {
+            title
+            embed_object_alignment
+            embed_object
+            description
+          }
+
+          widget {
+            title_h2
+            type
+          }
+        }
       }
     }
-    allContentstackPage(filter: { title: { eq: "Blog" } }) {
+
+    allContentstackBlogPost {
       nodes {
         url
         title
-        page_components {
-          hero_banner {
-            banner_description
-            banner_image {
-              url
-              title
-              uid
-            }
-          }
+        uid
+        author {
+          title
         }
+        related_post {
+          title
+          body
+        }
+        date
+        featured_image {
+          url
+        }
+        is_archived
+        body
       }
     }
   }
