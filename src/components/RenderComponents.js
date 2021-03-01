@@ -28,7 +28,11 @@ const RenderComponents = props => {
           return <Section data={component} key={index} />
         }
         if (component["section_with_buckets"]) {
-          return <SectionBucket data={component} key={index} />
+          return about ? (
+            <AboutSectionBucket data={component} key={index} />
+          ) : (
+            <SectionBucket data={component} key={index} />
+          )
         }
         if (component["from_blog"]) {
           return <BlogSection data={component} key={index} />
@@ -41,9 +45,6 @@ const RenderComponents = props => {
         }
         if (component["our_team"]) {
           return <TeamSection data={component} key={index} />
-        }
-        if (component["section_with_buckets"]) {
-          return <AboutSectionBucket data={component} key={index} />
         }
       })}
     </>

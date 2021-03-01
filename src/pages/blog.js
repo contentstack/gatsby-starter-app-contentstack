@@ -9,13 +9,23 @@ import FromBlog from "../components/FromBlog"
 
 const Blog = props => {
   let { data } = props
+  let archived = [],
+    blogList = []
+  data.allContentstackBlogPost.nodes.forEach(blogs => {
+    if (blogs.is_archived) {
+      archived.push(blogs)
+    } else {
+      blogList.push(blogs)
+    }
+  })
+
   return (
     <Layout property={props}>
       <SEO title="Blog" />
       <HeroBanner />
       <div className="blog-container">
         <div className="blog-column-left">
-          {data.allContentstackBlogPost.nodes.map((blog, index) => {
+          {blogList.map((blog, index) => {
             return (
               <div className="blog-list" key={index}>
                 {blog.featured_image && (
@@ -61,10 +71,9 @@ const Blog = props => {
                 .title_h2
             }
           </h2>
-          <FromBlog />
+          <FromBlog data={archived} />
         </div>
       </div>
-      {}
     </Layout>
   )
 }
@@ -194,7 +203,7 @@ export const pageQuery = graphql`
       }
     }
 
-    allContentstackBlogPost(filter: { is_archived: { eq: false } }) {
+    allContentstackBlogPost {
       nodes {
         url
         title
@@ -202,10 +211,15 @@ export const pageQuery = graphql`
         author {
           title
         }
+        related_post {
+          title
+          body
+        }
         date
         featured_image {
           url
         }
+        is_archived
         body
       }
     }

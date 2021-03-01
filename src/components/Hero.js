@@ -17,7 +17,11 @@ const Hero = props => {
           ""
         )}
         {data.hero_banner.banner_description ? (
-          <p className={`hero-description ${props.title == "about" && "about-desc"}`}>
+          <p
+            className={`hero-description ${
+              props.title == "about" && "about-desc"
+            }`}
+          >
             {data.hero_banner.banner_description}
           </p>
         ) : (
