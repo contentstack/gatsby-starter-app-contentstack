@@ -1,25 +1,10 @@
-import { useStaticQuery, graphql,Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import React from "react"
 import ReactHtmlParser from "react-html-parser"
 
-const queryArchived = () => {
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      allContentstackBlogPost(filter: { is_archived: { eq: true } }) {
-        nodes {
-          url
-          title
-          body
-        }
-      }
-    }
-  `)
-  return data
-}
-
-const fromBlog = () => {
-  let data = queryArchived()
-  return data.allContentstackBlogPost.nodes.map((index, key) => {
+const FromBlog = props => {
+  let { data } = props
+  return data.map((index, key) => {
     return (
       <Link to={index.url} key={key}>
         <div>
@@ -31,4 +16,4 @@ const fromBlog = () => {
   })
 }
 
-export default fromBlog
+export default FromBlog

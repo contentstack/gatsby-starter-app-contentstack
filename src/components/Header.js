@@ -1,32 +1,32 @@
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import ReactHtmlParser from "react-html-parser"
 
 const queryHeader = () => {
   const query = graphql`
-  query {
-    contentstackHeader {
-      title
-      uid
-      logo {
+    query {
+      contentstackHeader {
         title
-        url
-      }
-      header_color
-      navigation_menu {
-        label
-        page_reference {
+        uid
+        logo {
           title
           url
         }
-      }
-      notification_bar {
-        show_announcement
-        announcement_text
+        header_color
+        navigation_menu {
+          label
+          page_reference {
+            title
+            url
+          }
+        }
+        notification_bar {
+          show_announcement
+          announcement_text
+        }
       }
     }
-  }
-`
+  `
   return useStaticQuery(query)
 }
 const Header = props => {

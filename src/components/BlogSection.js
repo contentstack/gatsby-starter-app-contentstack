@@ -33,7 +33,7 @@ const BlogSection = ({ data }) => {
               )}
               <div className="featured-content">
                 {blog.title ? <h3>{blog.title}</h3> : ""}
-                {blog.body && ReactHtmlParser(blog.body.slice(0,300))}
+                {blog.body && ReactHtmlParser(blog.body.slice(0, 300))}
                 <Link className="blogpost-readmore" to={blog.url}>
                   {"Read More -->"}
                 </Link>

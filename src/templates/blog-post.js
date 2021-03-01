@@ -9,7 +9,7 @@ import FromBlog from "../components/FromBlog"
 import HeroBanner from "../components/BlogBanner"
 
 export default function blogPost(props) {
-  let {data} = props
+  let { data } = props
   return (
     <Layout property={props}>
       <SEO title="Home" />
@@ -34,7 +34,7 @@ export default function blogPost(props) {
                 {data.contentstackPage.page_components[2].widget.title_h2}
               </h2>
             )}
-            <FromBlog />
+            <FromBlog data={data.contentstackBlogPost.related_post} />
           </div>
         </div>
       </div>
@@ -71,6 +71,7 @@ export const postQuery = graphql`
         meta_title
       }
     }
+
     contentstackPage {
       page_components {
         widget {

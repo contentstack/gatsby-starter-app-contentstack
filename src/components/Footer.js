@@ -43,56 +43,56 @@ const queryLayout = () => {
 const Footer = () => {
   let data = queryLayout()
   return (
-      <footer>
-        <div className="max-width footer-div">
-          <div className="col-quarter">
-            <Link to="/" className="logo-tag">
-              <img
-                src={data.contentstackFooter.logo.url}
-                alt="contentstack logo"
-                title="Contentstack"
-                className="logo footer-logo"
-              />
-            </Link>
-          </div>
-          <div className="col-half">
-            <nav>
-              <ul className="nav-ul">
-                {data.contentstackFooter.navigation.link.map((menu, index) => {
-                  return (
-                    <li className="footer-nav-li" key={index}>
-                      <Link to={menu.href}>{menu.title}</Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            </nav>
-          </div>
-          <div className="col-quarter social-link">
-            <div className="social-nav">
-              {data.contentstackFooter.social.social_share.map(
-                (social, index) => {
-                  return (
-                    <a
-                      href={social.link.href}
-                      title={social.link.title.toLowerCase()}
-                      key={index}
-                      className="footer-social-links"
-                    >
-                      <img src={social.icon.url} />
-                    </a>
-                  )
-                }
-              )}
-            </div>
+    <footer>
+      <div className="max-width footer-div">
+        <div className="col-quarter">
+          <Link to="/" className="logo-tag">
+            <img
+              src={data.contentstackFooter.logo.url}
+              alt="contentstack logo"
+              title="Contentstack"
+              className="logo footer-logo"
+            />
+          </Link>
+        </div>
+        <div className="col-half">
+          <nav>
+            <ul className="nav-ul">
+              {data.contentstackFooter.navigation.link.map((menu, index) => {
+                return (
+                  <li className="footer-nav-li" key={index}>
+                    <Link to={menu.href}>{menu.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+        </div>
+        <div className="col-quarter social-link">
+          <div className="social-nav">
+            {data.contentstackFooter.social.social_share.map(
+              (social, index) => {
+                return (
+                  <a
+                    href={social.link.href}
+                    title={social.link.title.toLowerCase()}
+                    key={index}
+                    className="footer-social-links"
+                  >
+                    <img src={social.icon.url} />
+                  </a>
+                )
+              }
+            )}
           </div>
         </div>
-        <div className="copyright">
-          {data.contentstackFooter.copyright
-            ? ReactHtmlParser(data.contentstackFooter.copyright)
-            : ""}
-        </div>
-      </footer>
+      </div>
+      <div className="copyright">
+        {data.contentstackFooter.copyright
+          ? ReactHtmlParser(data.contentstackFooter.copyright)
+          : ""}
+      </div>
+    </footer>
   )
 }
 

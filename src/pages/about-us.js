@@ -2,10 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-// import Hero from "../components/Hero"
-// import Section from "../components/Section"
-// import AboutSectionBucket from "../components/AboutSectionBucket"
-// import TeamSection from "../components/TeamSection"
 
 import RenderComponents from "../components/RenderComponents"
 
