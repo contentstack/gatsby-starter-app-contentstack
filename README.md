@@ -23,7 +23,7 @@ You can check the [live demo](https://gatsby-starter-app-contentstack.vercel.app
 
 Clone the following repo. It contains all the required dependencies.
 
-`git clone https://github.com/contentstack/gatsby-starter-contentstack.git`
+`git clone https://github.com/contentstack/gatsby-starter-app-contentstack.git`
 
 ## Install dependencies
 
