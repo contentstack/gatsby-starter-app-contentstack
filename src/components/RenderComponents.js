@@ -12,7 +12,6 @@ import PersonalizedCustomer from "./PersonalizedCustomer"
 
 const RenderComponents = props => {
   const { components, about } = props
-  console.log(components)
   return (
     <>
       {components?.map((component, index) => {

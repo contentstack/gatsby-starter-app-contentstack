@@ -47,14 +47,3 @@ CONTENTSTACK_ENVIRONMENT='publishing environment'
 CONTENTSTACK_HOSTED_URL='hosted site url'
 CONTENTSTACK_CDN="optional"
 ```
-
-## Tutorial
-
-We have created an in-depth tutorial on how you can create a website using Gatsby. By following the steps given in the tutorial, design a website similar to the one given in the demo.
-
-[Create a marketing website using Gatsby](https://www.contentstack.com/docs/example-apps/getting-started-with-gatsby-and-contentstack/)
-
-**More resources:**
-
-- [Contentstack documentation](https://www.contentstack.com/docs/)
-- [Contentstack + Gatsby app tutorial](https://www.contentstack.com/docs/developers/sample-apps/build-a-sample-website-using-gatsby-and-contentstack)
