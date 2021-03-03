@@ -1,7 +1,7 @@
 // Module dependency
 
 require("dotenv").config({
-  path: `.env`,
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const {
