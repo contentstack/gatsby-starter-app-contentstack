@@ -37,7 +37,9 @@ This downloads the required files and initializes the site.
 ## Launch Your Gatsby Server
 
 Go to the gatsby-starter folder, and run the following:
+
 cd gatsby-starter
+
 npm run develop 
 
 ## Update Contentstack secrets
