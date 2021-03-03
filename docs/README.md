@@ -109,7 +109,7 @@ Go to the gatsby-starter folder, and run the following:
 
     2. Scroll to line 159 and add paste the following and save the updated file:
 
-    ``` custom_section {
+    code( custom_section {
         title_h2
         title_h3
         description
@@ -122,7 +122,7 @@ Go to the gatsby-starter folder, and run the following:
             title
             href
         }
-    } ```
+    } )
 
 
 Create the React Component for the “Custom Section” Modular Block
