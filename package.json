@@ -47,7 +47,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "ci:build": "run-s generate:intents clean build:gatsby",
-    "generate:intents": "uniform optimize manifest download --output ./src/lib/intentManifest.json --apiKey $UNIFORM_API_KEY"
+    "generate:intents": "uniform optimize manifest download --output ./src/lib/intentManifest.json --apiKey e5f2f18a-8cae-4232-8f8f-6d1baecc9604"
   },
   "repository": {
     "type": "git",
