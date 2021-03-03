@@ -34,6 +34,12 @@ Go to the gatsby-starter-contentstack folder, and run the following:
 
 This downloads the required files and initializes the site.
 
+## Launch Your Gatsby Server
+
+Go to the gatsby-starter folder, and run the following:
+cd gatsby-starter
+npm run develop 
+
 ## Update Contentstack secrets
 
 Copy the `.env.sample` file to `.env.development` and `.env.production` and update with your Contentstack details, including your API key and delivery token.

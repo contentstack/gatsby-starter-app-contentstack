@@ -10,6 +10,8 @@ import AboutSectionBucket from "./AboutSectionBucket"
 import SectionWithEmbedObject from "./SectionWithEmbedObject"
 import PersonalizedCustomer from "./PersonalizedCustomer"
 
+// << insert code here >>
+
 const RenderComponents = props => {
   const { components, about } = props
   return (
@@ -26,6 +28,9 @@ const RenderComponents = props => {
         if (component["section"]) {
           return <Section data={component} key={index} />
         }
+        
+        // << insert code here >>
+
         if (component["section_with_buckets"]) {
           return about ? (
             <AboutSectionBucket data={component} key={index} />
