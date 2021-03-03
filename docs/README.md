@@ -106,7 +106,7 @@ Add a new GraphQL query section to fetch content from our newly created Custom S
 
 2. Scroll to line 159 and add paste the following and save the updated file:
 
-    ```javascript
+```javascript
     custom_section {
         title_h2
         title_h3
@@ -121,7 +121,7 @@ Add a new GraphQL query section to fetch content from our newly created Custom S
             href
         }
     } 
-    ```
+```
 
 
 
