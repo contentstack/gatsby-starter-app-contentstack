@@ -38,9 +38,9 @@ This downloads the required files and initializes the site.
 
 Go to the gatsby-starter folder, and run the following:
 
-cd gatsby-starter
+- `cd gatsby-starter`
 
-npm run develop 
+- `npm run develop` 
 
 ## Update Contentstack secrets
 
