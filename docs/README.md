@@ -54,69 +54,75 @@ Go to the gatsby-starter folder, and run the following:
 
 ### Part 1 - Create a New Component in Contentstack
 
-1. In Contentstack, click “CONTENT” to access the list of Content Types in the
+    1. In Contentstack, click “CONTENT” to access the list of Content Types in the
 
-2. Hover over the “Page” content type, click on the 3 dots to the right side and select “Edit Content Type”.
+    2. Hover over the “Page” content type, click on the 3 dots to the right side and select “Edit Content Type”.
 
-3. Navigate to the “Page Components” and scroll to the block titled “Custom Section”, it will be at the end (for your convenience we’ve prebuilt most of this component)
+    3. Navigate to the “Page Components” and scroll to the block titled “Custom Section”, it will be at the end (for your convenience we’ve prebuilt most of this component)
 
-4. From the left side, drag the “Multi Line Textbox” field type and place it IN THE MODULAR BLOCK. Set the Display name as “Description”. The Unique ID will automatically set itself as “description”. Please make sure there are no spelling mistakes for everything to work well.
+    4. From the left side, drag the “Multi Line Textbox” field type and place it IN THE MODULAR BLOCK. Set the Display name as “Description”. The Unique ID will automatically set itself as “description”. Please make sure there are no spelling mistakes for everything to work well.
 
-5. From the left side, drag a “File” field type and place it IN THE MODULAR BLOCK. Set the Display Name as “Page Component”. The Unique ID will automatically set itself as “page_components”. Please make sure there are no spelling mistakes for everything to work well.
+    5. From the left side, drag a “File” field type and place it IN THE MODULAR BLOCK. Set the Display Name as “Page Component”. The Unique ID will automatically set itself as “page_components”. Please make sure there are no spelling mistakes for everything to work well.
 
-6. Click “Save and Close”.
+    6. Click “Save and Close”.
 
 ### Part 2 - Add the Content to Your Page
 
-1. Click on “Page”
+    1. Click on “Page”
 
-2. Select the “Home” entry
+    2. Select the “Home” entry
 
-3. Scroll to the “Page Components” and click on the “Custom Section” button
+    3. Scroll to the “Page Components” and click on the “Custom Section” button
 
-4. Enter the following content:
+    4. Enter the following content:
 
-    a. Title H2: A brand new custom section
+        a. Title H2: A brand new custom section
 
-    b. Title H3: A brand new react component
+        b. Title H3: A brand new react component
 
-    c. Description: Here is a new description
+        c. Description: Here is a new description
 
-    d. Image: 
-        i. Click on “Choose from uploads”
-        ii. Click on the “Homepage” folder
-        iii. Select “image.svg”
+        d. Image: 
+            i. Click on “Choose from uploads”
+            ii. Click on the “Homepage” folder
+            iii. Select “image.svg”
 
-    e. Image Alignment will default to “Left”
-    
-    h. Call to Action: CTA
+        e. Image Alignment will default to “Left”
+        
+        h. Call to Action: CTA
 
-    g. URL: https://contentstack.com/ 
+        g. URL: https://contentstack.com/ 
 
-Publish the update to your entry:
-Click “Publish” in the bottom bar
-Select “development”
-Click “Publish”
-Part 3 - Add Code to Render the Component
-Update GraphQL Query to Fetch the “Custom Section” Modular Block
-Add a new GraphQL query section to fetch content from our newly created Custom Section data from Contentstack.
-Go back to your code editor and navigate to src > pages > index.js
-Scroll to line 159 and add paste the following and save the updated file:
+    5. Publish the update to your entry:
 
-custom_section {
-    title_h2
-    title_h3
-    description
-    image {
-        title
-        url
-    }
-    image_alignment
-    call_to_action {
-        title
-        href
-    }
-}
+        a. Click “Publish” in the bottom bar
+        b. Select “development”
+        c .Click “Publish”
+
+### Part 3 - Add Code to Render the Component
+
+### Update GraphQL Query to Fetch the “Custom Section” Modular Block
+
+    Add a new GraphQL query section to fetch content from our newly created Custom Section data from Contentstack.
+
+    1. Go back to your code editor and navigate to src > pages > index.js
+
+    2. Scroll to line 159 and add paste the following and save the updated file:
+
+    ``` custom_section {
+        title_h2
+        title_h3
+        description
+        image {
+            title
+            url
+        }
+        image_alignment
+        call_to_action {
+            title
+            href
+        }
+    } ```
 
 
 Create the React Component for the “Custom Section” Modular Block
