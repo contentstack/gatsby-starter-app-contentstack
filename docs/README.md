@@ -1,6 +1,6 @@
 ## Live Demo
 
-You can check out the live demo to get a first-hand experience of the website.
+You can check the [live demo](https://gatsby-starter-app-contentstack.vercel.app/) to get first-hand experience of the website.
 
 ## Prerequisites
 
