@@ -109,7 +109,8 @@ Go to the gatsby-starter folder, and run the following:
 
     2. Scroll to line 159 and add paste the following and save the updated file:
 
-    code( custom_section {
+    ```javascript
+        custom_section {
         title_h2
         title_h3
         description
@@ -122,13 +123,16 @@ Go to the gatsby-starter folder, and run the following:
             title
             href
         }
-    } )
+    } 
+    ```
 
 
-Create the React Component for the “Custom Section” Modular Block
-Navigate to src > components
-Create a new file in your components folder called CustomSection.js.
-Copy and paste the following into the file and save it.
+ ### Create the React Component for the “Custom Section” Modular Block
+ 1. Navigate to src > components
+ 2. Create a new file in your components folder called CustomSection.js.
+ 3. Copy and paste the following into the file and save it.
+
+``` javascript
 import { Link } from "gatsby"
 import React from "react"
 const CustomSection = ({ data }) => {
@@ -166,6 +170,7 @@ const CustomSection = ({ data }) => {
   )
 }
 export default CustomSection
+```
 
 Rendering the “Custom Section” Modular Block
 
