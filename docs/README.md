@@ -54,63 +54,59 @@ Go to the gatsby-starter folder, and run the following:
 
 ### Part 1 - Create a New Component in Contentstack
 
-    1. In Contentstack, click “CONTENT” to access the list of Content Types in the
+1. In Contentstack, click “CONTENT” to access the list of Content Types in the
 
-    2. Hover over the “Page” content type, click on the 3 dots to the right side and select “Edit Content Type”.
+2. Hover over the “Page” content type, click on the 3 dots to the right side and select “Edit Content Type”.
 
-    3. Navigate to the “Page Components” and scroll to the block titled “Custom Section”, it will be at the end (for your convenience we’ve prebuilt most of this component)
+3. Navigate to the “Page Components” and scroll to the block titled “Custom Section”, it will be at the end (for your convenience we’ve prebuilt most of this component)
 
-    4. From the left side, drag the “Multi Line Textbox” field type and place it IN THE MODULAR BLOCK. Set the Display name as “Description”. The Unique ID will automatically set itself as “description”. Please make sure there are no spelling mistakes for everything to work well.
+4. From the left side, drag the “Multi Line Textbox” field type and place it IN THE MODULAR BLOCK. Set the Display name as “Description”. The Unique ID will automatically set itself as “description”. Please make sure there are no spelling mistakes for everything to work well.
 
-    5. From the left side, drag a “File” field type and place it IN THE MODULAR BLOCK. Set the Display Name as “Page Component”. The Unique ID will automatically set itself as “page_components”. Please make sure there are no spelling mistakes for everything to work well.
+5. From the left side, drag a “File” field type and place it IN THE MODULAR BLOCK. Set the Display Name as “Page Component”. The Unique ID will automatically set itself as “page_components”. Please make sure there are no spelling mistakes for everything to work well.
 
-    6. Click “Save and Close”.
+6. Click “Save and Close”.
 
 ### Part 2 - Add the Content to Your Page
 
-    1. Click on “Page”
+1. Click on “Page”
 
-    2. Select the “Home” entry
+2. Select the “Home” entry
 
-    3. Scroll to the “Page Components” and click on the “Custom Section” button
+3. Scroll to the “Page Components” and click on the “Custom Section” button
 
-    4. Enter the following content:
+4. Enter the following content:
 
-        a. Title H2: A brand new custom section
+    a. Title H2: A brand new custom section
 
-        b. Title H3: A brand new react component
+    b. Title H3: A brand new react component
 
-        c. Description: Here is a new description
+    c. Description: Here is a new description
 
-        d. Image: 
-            i. Click on “Choose from uploads”
-            ii. Click on the “Homepage” folder
-            iii. Select “image.svg”
-
+    d. Image: 
+        i. Click on “Choose from uploads”
+        ii. Click on the “Homepage” folder
+        iii. Select “image.svg”
         e. Image Alignment will default to “Left”
-        
         h. Call to Action: CTA
-
         g. URL: https://contentstack.com/ 
 
-    5. Publish the update to your entry:
+5. Publish the update to your entry:
 
-        a. Click “Publish” in the bottom bar
-        b. Select “development”
-        c .Click “Publish”
+    a. Click “Publish” in the bottom bar
+    b. Select “development”
+    c .Click “Publish”
 
 ### Part 3 - Add Code to Render the Component
 
 ### Update GraphQL Query to Fetch the “Custom Section” Modular Block
 
-    Add a new GraphQL query section to fetch content from our newly created Custom Section data from Contentstack.
+Add a new GraphQL query section to fetch content from our newly created Custom Section data from Contentstack.
 
-    1. Go back to your code editor and navigate to src > pages > index.js
+1. Go back to your code editor and navigate to src > pages > index.js
 
-    2. Scroll to line 159 and add paste the following and save the updated file:
+2. Scroll to line 159 and add paste the following and save the updated file:
 
-    ```javascript
-        custom_section {
+    custom_section {
         title_h2
         title_h3
         description
@@ -124,10 +120,10 @@ Go to the gatsby-starter folder, and run the following:
             href
         }
     } 
-    ```
 
 
- ### Create the React Component for the “Custom Section” Modular Block
+
+### Create the React Component for the “Custom Section” Modular Block
  1. Navigate to src > components
  2. Create a new file in your components folder called CustomSection.js.
  3. Copy and paste the following into the file and save it.
@@ -172,39 +168,26 @@ const CustomSection = ({ data }) => {
 export default CustomSection
 ```
 
-Rendering the “Custom Section” Modular Block
+### Rendering the “Custom Section” Modular Block
 
-Navigate back to our components folder (src > components) and open RenderComponents.js. We will now add the new CustomSection React component to our page.
-On line 12, insert the following text: 	
+1. Navigate back to our components folder (src > components) and open RenderComponents.js. We will now add the new CustomSection React component to our page.
+2. On line 12, insert the following text: 	
+```javascript
 import CustomSection from "./CustomSection"
-On line 30, insert the following code:
+```
+3. On line 30, insert the following code:
+
+```javascript 
 if (component["custom_section"]) {
    return <CustomSection data={component} key={index} />
 }
+```
 
-Save the file
-Re-compile Your Gatsby App
-Note: if your Gatsby server is already running, it will likely automatically re-compile your work. If you get an error, please try recompiling your app and double check the above steps (especially spelling!)
+4. Save the file
 
-In your Terminal, type “npm run develop”.
-Your homepage in your web browser should automatically refresh itself.
+### Re-compile Your Gatsby App
 
+`Note: if your Gatsby server is already running, it will likely automatically re-compile your work. If you get an error, please try recompiling your app and double check the above steps (especially spelling!)`
 
-Can we add this part to the readme:
-
-Launch Your Gatsby Server
-Go to the gatsby-starter folder, and run the following:
-cd gatsby-starter
-npm run develop
-
-Can we get this doc added to the repository:
-
-https://docs.google.com/document/d/1pNsrYK4AaCubBYH2bhA7_OzAH5P04TXfz8NBLTdhlRg/edit?ts=603efcae#
-
-Can we get code changes, that have comment lines for where to insert code snippets in the files themselves.
-
-index.js 
-Line 159: // << insert code here >>
-Rendercomponents.js 
-Line 12: // << insert code here >>
-Line 30: // << insert code here >>
+1. In your Terminal, type “npm run develop”.
+2. Your homepage in your web browser should automatically refresh itself.
