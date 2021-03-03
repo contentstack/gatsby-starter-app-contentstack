@@ -38,7 +38,7 @@ This downloads the required files and initializes the site.
 
 Go to the gatsby-starter folder, and run the following:
 
-- `cd gatsby-starter`
+- `cd gatsby-starter-contentstack`
 
 - `npm run develop` 
 

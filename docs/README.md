@@ -5,36 +5,50 @@ You can check out the live demo to get a first-hand experience of the website.
 ## Prerequisites
 
 Install nodejs on your system.
+
 Install Gatsby CLI.
-npm install -g gatsby-cli
+
+- `npm install -g gatsby-cli`
+
 
 ## Clone the repo
 
-Clone the following repo. It contains all the required dependencies.
-git clone https://github.com/contentstack/gatsby-starter-app-contentstack.git gatsby-starter
+Clone the following repo.It contains all the required dependencies.
+
+- `git clone https://github.com/contentstack/gatsby-starter-app-contentstack.git gatsby-starter`
 
 ## Install dependencies
 Go to the gatsby-starter folder, and run the following:
-cd gatsby-starter
-npm install
+
+- `cd gatsby-starter`
+
+- `npm install`
+
 This downloads the required files and initializes the site.
 
 ## Update Contentstack secrets
 
 In Contentstack, navigate to the Tokens section by clicking on the Settings icon in the menu and clicking on “Tokens”. Click on “development token”
-Open .env.development and update with your Contentstack details, including your API key and delivery token.
+Open `.env.development` and update with your Contentstack details, including your API key and delivery token.
+
 It should end up looking something like:
-CONTENTSTACK_API_KEY=blt...
-CONTENTSTACK_DELIVERY_TOKEN=cs...
-CONTENTSTACK_ENVIRONMENT=development
-CONTENTSTACK_HOSTED_URL='https://gatsby-cdn.contentstack.com/v3'
-CONTENTSTACK_CDN=http://localhost:8000/
+
+`CONTENTSTACK_API_KEY=blt...`
+
+`CONTENTSTACK_DELIVERY_TOKEN=cs...`
+
+`CONTENTSTACK_ENVIRONMENT=development`
+
+`CONTENTSTACK_HOSTED_URL='https://gatsby-cdn.contentstack.com/v3'`
+
+`CONTENTSTACK_CDN=http://localhost:8000/`
 
 ## Launch Your Gatsby Server
 
 Go to the gatsby-starter folder, and run the following:
-cd gatsby-starter
-npm run develop 
+
+- `cd gatsby-starter`
+- `npm run develop` 
 
 ## Extending the Home Page with a New Component
 
