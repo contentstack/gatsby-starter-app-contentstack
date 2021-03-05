@@ -60,18 +60,12 @@ const Header = props => {
             {data.contentstackHeader.navigation_menu.map((menu, index) => {
               return (
                 <li className="nav-li" key={index}>
-                  {props.property.uri.includes(menu.page_reference[0].url) &&
-                  menu.label !== "Home" && (
-                  //   <Link className="active" to={menu.page_reference[0].url}>
-                  //     {menu.label}
-                  //   </Link>
-                  // ) : props.property.uri == "/" && menu.label == "Home" ? (
-                  //   <Link to={menu.page_reference[0].url} className="active">
-                  //     {menu.label}
-                  //   </Link>
-                  // ) : (
-                    <Link to={menu.page_reference[0].url}  activeClassName="active">{menu.label}</Link>
-                  )}
+                  <Link
+                    to={menu.page_reference[0].url}
+                    activeClassName="active"
+                  >
+                    {menu.label}
+                  </Link>
                 </li>
               )
             })}
