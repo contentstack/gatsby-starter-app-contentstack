@@ -38,16 +38,15 @@ const Header = props => {
             data.contentstackHeader.notification_bar.announcement_text
           )}
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
       <div className="max-width header-div">
         <div className="wrapper-logo">
           <Link to="/" className="logo-tag" title="Contentstack">
             <img
               className="logo"
               src={data.contentstackHeader.logo.url}
-              alt="Contentstack logo"
+              alt={data.contentstackHeader.title}
+              title={data.contentstackHeader.title}
             />
           </Link>
         </div>
@@ -61,7 +60,6 @@ const Header = props => {
             {data.contentstackHeader.navigation_menu.map((menu, index) => {
               return (
                 <li className="nav-li" key={index}>
-                  {/* <Link to={menu.page_reference[0].url}>{menu.label}</Link> */}
                   {props.property.uri.includes(menu.page_reference[0].url) &&
                   menu.label !== "Home" && (
                   //   <Link className="active" to={menu.page_reference[0].url}>

@@ -48,8 +48,8 @@ const Footer = () => {
           <Link to="/" className="logo-tag">
             <img
               src={data.contentstackFooter.logo.url}
-              alt="contentstack logo"
-              title="Contentstack"
+              alt={data.contentstackFooter.title}
+              title={data.contentstackFooter.title}
               className="logo footer-logo"
             />
           </Link>
