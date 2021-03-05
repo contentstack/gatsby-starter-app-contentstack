@@ -78,7 +78,6 @@ nav ul li a {
 
 header {
   background: #fff;
-  height: 100px;
   position: sticky;
   top: 0;
   z-index: 9;
@@ -330,7 +329,6 @@ footer a {
   display: flex;
   justify-content: space-evenly;
   text-align: center;
-  margin-top: 21px;
   margin: 63px;
   flex-wrap: wrap;
 }
@@ -344,7 +342,8 @@ footer a {
   margin-top: 43px;
 }
 
-.mission-content-bottom, .mission-content-top {
+.mission-content-bottom,
+.mission-content-top {
   display: flex;
   justify-content: space-evenly;
   text-align: left;
@@ -634,6 +633,13 @@ footer a {
 /* ========================== */
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
+  header {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    height: 70px;
+    z-index: 9;
+  }
   .footer-div {
     flex-direction: column;
   }
@@ -1012,7 +1018,6 @@ footer a {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
-    margin-top: 21px;
     margin: 63px;
     flex-wrap: nowrap;
   }

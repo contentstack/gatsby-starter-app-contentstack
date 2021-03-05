@@ -34,7 +34,13 @@ export default function blogPost(props) {
                 {data.contentstackPage.page_components[2].widget.title_h2}
               </h2>
             )}
-            <FromBlog data={data.contentstackBlogPost.related_post} />
+            <FromBlog
+              data={
+                data.contentstackBlogPost.related_post
+                  ? data.contentstackBlogPost.related_post
+                  : ""
+              }
+            />
           </div>
         </div>
       </div>
