@@ -8,7 +8,6 @@ const queryLayout = () => {
       contentstackFooter {
         title
         uid
-        footer_color
         logo {
           url
           title
