@@ -20,7 +20,7 @@ const Blog = props => {
   })
 
   return (
-    <Layout property={props}>
+    <Layout>
       <SEO title="Blog" />
       <HeroBanner />
       <div className="blog-container">

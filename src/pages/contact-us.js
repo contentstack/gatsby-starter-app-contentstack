@@ -7,7 +7,7 @@ import RenderComponents from "../components/RenderComponents"
 const Contact = props => {
   let { data } = props
   return (
-    <Layout property={props}>
+    <Layout>
       <SEO title="Contact" />
       {data.allContentstackPage.nodes[0].page_components && (
         <RenderComponents

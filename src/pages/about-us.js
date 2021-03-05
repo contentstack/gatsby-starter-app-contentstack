@@ -8,7 +8,7 @@ import RenderComponents from "../components/RenderComponents"
 const About = props => {
   let { data } = props
   return (
-    <Layout property={props}>
+    <Layout>
       <SEO title="About" />
       <div className="about">
         {data.allContentstackPage.nodes[0].page_components && (
