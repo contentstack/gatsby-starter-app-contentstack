@@ -8,6 +8,7 @@
     "depcheck": "^1.4.0",
     "dotenv": "^8.2.0",
     "gatsby": "^2.32.4",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.5",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-offline": "^3.10.1",
     "gatsby-plugin-react-helmet": "^3.4.0",

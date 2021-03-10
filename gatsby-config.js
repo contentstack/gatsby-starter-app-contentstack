@@ -21,9 +21,11 @@ module.exports = {
     author: "Contentstack",
     siteUrl: hostedUrl,
   },
+  pathPrefix:'/',
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    `gatsby-plugin-force-trailing-slashes`,
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {

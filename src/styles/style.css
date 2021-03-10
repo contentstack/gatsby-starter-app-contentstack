@@ -107,6 +107,10 @@ header nav {
   overflow: hidden;
 }
 
+.active{
+  color: #715cdd;
+}
+
 header nav li a:hover,
 header nav li a.active {
   color: #715cdd;
