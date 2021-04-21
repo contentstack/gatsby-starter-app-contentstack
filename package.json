@@ -35,13 +35,10 @@
   "scripts": {
     "build": "run-s build:gatsby",
     "develop": "run-s develop:gatsby",
-    
     "build:gatsby": "gatsby build",
     "develop:gatsby": "gatsby develop",
-    
     "build:uniform": "run-s generate:intents clean build:gatsby",
-    "develop:uniform": "run-s generate:intents develop:gatsby",    
-    
+    "develop:uniform": "run-s generate:intents develop:gatsby",
     "format": "prettier --write \"**/*.{js,css,html,jsx,ts,tsx,json,md}\"",
     "start": "run-s develop:uniform",
     "serve": "gatsby serve",

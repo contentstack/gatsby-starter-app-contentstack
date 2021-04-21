@@ -15,7 +15,6 @@ export default function blogPost(props) {
   let { data } = props
   const intents = data?.contentstackBlogPost?.intent_tags
   const trackerInstance = localTracker
-
   return (
     <UniformTracker trackerInstance={trackerInstance}>
       <Layout property={props}>

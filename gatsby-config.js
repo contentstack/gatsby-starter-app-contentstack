@@ -51,7 +51,7 @@ module.exports = {
         api_key: CONTENTSTACK_API_KEY,
         delivery_token: CONTENTSTACK_DELIVERY_TOKEN,
         environment: CONTENTSTACK_ENVIRONMENT,
-        cdn: CONTENTSTACK_CDN || "",
+        cdn: CONTENTSTACK_CDN,
         // Optional: expediteBuild set this to either true or false
         expediteBuild: true,
         // Optional: Specify true if you want to generate custom schema
