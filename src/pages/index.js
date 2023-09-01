@@ -1,21 +1,37 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import ContentstackLivePreview from "@contentstack/live-preview-utils"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import RenderComponents from "../components/RenderComponents"
 import { UniformTracker } from "@uniformdev/optimize-tracker-react"
 import { localTracker } from "../lib/local-tracker"
+import { livePreview } from "../lib/live-preview"
 
 const Home = props => {
-  let { data } = props
+  const entryUid = props.data.allContentstackPage.nodes[0]?.uid
+  const [data, setData] = useState(props.data.allContentstackPage.nodes[0])
   const trackerInstance = localTracker
+
+  const fetchLivePreviewData = async () => {
+    // pass initial data to livePreview.get()
+    const updatedData = await livePreview.get(props.data.allContentstackPage.nodes[0]);
+    if (updatedData?.uid === entryUid) {
+      setData(updatedData)
+    }
+  }
+
+  useEffect(() => {
+    const callbackId = ContentstackLivePreview.onLiveEdit(fetchLivePreviewData);
+    return () => ContentstackLivePreview.unsubscribeOnEntryChange(callbackId);
+  }, [])
 
   return (
     <UniformTracker trackerInstance={trackerInstance}>
       <Layout property={props}>
         <SEO title="Home" />
-        {data.allContentstackPage.nodes[0].page_components ? (
+        {data.page_components ? (
           <RenderComponents
-            components={data.allContentstackPage.nodes[0].page_components}
+            components={data.page_components}
           />
         ) : (
           ""

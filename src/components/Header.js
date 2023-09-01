@@ -1,6 +1,8 @@
+import React, { useState, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import React from "react"
 import ReactHtmlParser from "react-html-parser"
+import ContentstackLivePreview from "@contentstack/live-preview-utils"
+import { livePreview } from "../lib/live-preview"
 
 const queryHeader = () => {
   const query = graphql`
@@ -30,13 +32,29 @@ const queryHeader = () => {
   return useStaticQuery(query)
 }
 const Header = props => {
-  let data = queryHeader()
+  let headerData = queryHeader()
+  const entryUid = headerData.contentstackHeader?.uid;
+  const [data, setData] = useState(headerData.contentstackHeader)
+
+  const fetchLivePreviewData = async () => {
+    // pass initial data to livePreview.get()
+    const updatedData = await livePreview.get(headerData.contentstackHeader);
+    if (updatedData?.uid === entryUid) {
+      setData(updatedData)
+    }
+  }
+
+  useEffect(() => {
+    const callbackId = ContentstackLivePreview.onLiveEdit(fetchLivePreviewData);
+    return () => ContentstackLivePreview.unsubscribeOnEntryChange(callbackId);
+  }, [])
+
   return (
     <header className="header">
-      {data.contentstackHeader.notification_bar.show_announcement ? (
+      {data.notification_bar.show_announcement ? (
         <div className="note-div">
           {ReactHtmlParser(
-            data.contentstackHeader.notification_bar.announcement_text
+            data.notification_bar.announcement_text
           )}
         </div>
       ) : (
@@ -47,7 +65,7 @@ const Header = props => {
           <Link to="/" className="logo-tag" title="Contentstack">
             <img
               className="logo"
-              src={data.contentstackHeader.logo.url}
+              src={data.logo.url}
               alt="Contentstack logo"
             />
           </Link>
@@ -59,12 +77,12 @@ const Header = props => {
 
         <nav className="menu">
           <ul className="nav-ul header-ul">
-            {data.contentstackHeader.navigation_menu.map((menu, index) => {
+            {data.navigation_menu.map((menu, index) => {
               return (
                 <li className="nav-li" key={index}>
                   {/* <Link to={menu.page_reference[0].url}>{menu.label}</Link> */}
                   {props.property.uri.includes(menu.page_reference[0].url) &&
-                  menu.label !== "Home" ? (
+                    menu.label !== "Home" ? (
                     <Link className="active" to={menu.page_reference[0].url}>
                       {menu.label}
                     </Link>

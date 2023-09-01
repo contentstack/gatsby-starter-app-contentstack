@@ -1,23 +1,40 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
+import ContentstackLivePreview from "@contentstack/live-preview-utils"
 import ReactHtmlParser from "react-html-parser"
 import moment from "moment"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import HeroBanner from "../components/BlogBanner"
 import FromBlog from "../components/FromBlog"
+import { livePreview } from "../lib/live-preview"
 
 const Blog = props => {
-  let { data } = props
+  const entryUid = props.data.allContentstackPage.nodes[0]?.uid
+  const [data, setData] = useState(props.data.allContentstackPage.nodes[0])
+
   let archived = [],
     blogList = []
-  data.allContentstackBlogPost.nodes.forEach(blogs => {
+  props.data.allContentstackBlogPost.nodes.forEach(blogs => {
     if (blogs.is_archived) {
       archived.push(blogs)
     } else {
       blogList.push(blogs)
     }
   })
+
+  const fetchLivePreviewData = async () => {
+    // pass initial data to livePreview.get()
+    const updatedData = await livePreview.get(props.data.allContentstackPage.nodes[0]);
+    if (updatedData?.uid === entryUid) {
+      setData(updatedData)
+    }
+  }
+
+  useEffect(() => {
+    const callbackId = ContentstackLivePreview.onLiveEdit(fetchLivePreviewData);
+    return () => ContentstackLivePreview.unsubscribeOnEntryChange(callbackId);
+  }, [])
 
   return (
     <Layout property={props}>
@@ -67,11 +84,11 @@ const Blog = props => {
         <div className="blog-column-right">
           <h2>
             {
-              data.allContentstackPage.nodes[0].page_components[1].widget
+              data.page_components[1].widget
                 .title_h2
             }
           </h2>
-          <FromBlog data={archived} />
+          {/* <FromBlog data={archived} /> */}
         </div>
       </div>
     </Layout>

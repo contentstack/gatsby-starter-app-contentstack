@@ -5,14 +5,14 @@ require("dotenv").config({
 })
 
 const {
-  CONTENTSTACK_API_KEY,
-  CONTENTSTACK_DELIVERY_TOKEN,
-  CONTENTSTACK_ENVIRONMENT,
-  CONTENTSTACK_CDN,
-  CONTENTSTACK_HOSTED_URL,
+  GATSBY_CONTENTSTACK_API_KEY,
+  GATSBY_CONTENTSTACK_DELIVERY_TOKEN,
+  GATSBY_CONTENTSTACK_ENVIRONMENT,
+  GATSBY_CONTENTSTACK_CDN,
+  GATSBY_CONTENTSTACK_HOSTED_URL,
 } = process.env
 
-const hostedUrl = CONTENTSTACK_HOSTED_URL || "http://localhost:9000"
+const hostedUrl = GATSBY_CONTENTSTACK_HOSTED_URL || "http://localhost:9000"
 
 module.exports = {
   siteMetadata: {
@@ -48,10 +48,10 @@ module.exports = {
     {
       resolve: "gatsby-source-contentstack",
       options: {
-        api_key: CONTENTSTACK_API_KEY,
-        delivery_token: CONTENTSTACK_DELIVERY_TOKEN,
-        environment: CONTENTSTACK_ENVIRONMENT,
-        cdn: CONTENTSTACK_CDN,
+        api_key: GATSBY_CONTENTSTACK_API_KEY,
+        delivery_token: GATSBY_CONTENTSTACK_DELIVERY_TOKEN,
+        environment: GATSBY_CONTENTSTACK_ENVIRONMENT,
+        cdn: GATSBY_CONTENTSTACK_CDN,
         // Optional: expediteBuild set this to either true or false
         expediteBuild: true,
         // Optional: Specify true if you want to generate custom schema

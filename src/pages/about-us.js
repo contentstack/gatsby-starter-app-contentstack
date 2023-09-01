@@ -1,19 +1,36 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import { graphql } from "gatsby"
+import ContentstackLivePreview from "@contentstack/live-preview-utils"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
+import { livePreview } from "../lib/live-preview"
 
 import RenderComponents from "../components/RenderComponents"
 
 const About = props => {
-  let { data } = props
+  const entryUid = props.data.allContentstackPage.nodes[0]?.uid
+  const [data, setData] = useState(props.data.allContentstackPage.nodes[0])
+
+  const fetchLivePreviewData = async () => {
+    // pass initial data to livePreview.get()
+    const updatedData = await livePreview.get(props.data.allContentstackPage.nodes[0]);
+    if (updatedData?.uid === entryUid) {
+      setData(updatedData)
+    }
+  }
+
+  useEffect(() => {
+    const callbackId = ContentstackLivePreview.onLiveEdit(fetchLivePreviewData);
+    return () => ContentstackLivePreview.unsubscribeOnEntryChange(callbackId);
+  }, [])
+
   return (
     <Layout property={props}>
       <SEO title="About" />
       <div className="about">
-        {data.allContentstackPage.nodes[0].page_components && (
+        {data.page_components && (
           <RenderComponents
-            components={data.allContentstackPage.nodes[0].page_components}
+            components={data.page_components}
             about
           />
         )}

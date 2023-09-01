@@ -33,15 +33,15 @@ Open `.env.development` and update with your Contentstack details, including you
 
 It should end up looking something like:
 
-`CONTENTSTACK_API_KEY=blt...`
+`GATSBY_CONTENTSTACK_API_KEY=blt...`
 
-`CONTENTSTACK_DELIVERY_TOKEN=cs...`
+`GATSBY_CONTENTSTACK_DELIVERY_TOKEN=cs...`
 
-`CONTENTSTACK_ENVIRONMENT=development`
+`GATSBY_CONTENTSTACK_ENVIRONMENT=development`
 
-`CONTENTSTACK_HOSTED_URL='https://gatsby-cdn.contentstack.com/v3'`
+`GATSBY_CONTENTSTACK_HOSTED_URL='https://gatsby-cdn.contentstack.com/v3'`
 
-`CONTENTSTACK_CDN=http://localhost:8000/`
+`GATSBY_CONTENTSTACK_CDN=http://localhost:8000/`
 
 ## Launch Your Gatsby Server
 

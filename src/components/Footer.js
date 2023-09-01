@@ -1,6 +1,8 @@
+import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import React from "react"
 import ReactHtmlParser from "react-html-parser"
+import ContentstackLivePreview from "@contentstack/live-preview-utils"
+import { livePreview } from "../lib/live-preview"
 
 const queryLayout = () => {
   const data = useStaticQuery(graphql`
@@ -41,14 +43,30 @@ const queryLayout = () => {
 }
 
 const Footer = () => {
-  let data = queryLayout()
+  let footerData = queryLayout()
+  const entryUid = footerData.contentstackFooter?.uid
+  const [data, setData] = useState(footerData.contentstackFooter)
+  
+  const fetchLivePreviewData = async () => {
+    // pass initial data to livePreview.get()
+    const updatedData = await livePreview.get(footerData.contentstackFooter);
+    if (updatedData?.uid === entryUid) {
+      setData(updatedData)
+    }
+  }
+
+  useEffect(() => {
+    const callbackId = ContentstackLivePreview.onLiveEdit(fetchLivePreviewData);
+    return () => ContentstackLivePreview.unsubscribeOnEntryChange(callbackId);
+  }, [])
+
   return (
     <footer>
       <div className="max-width footer-div">
         <div className="col-quarter">
           <Link to="/" className="logo-tag">
             <img
-              src={data.contentstackFooter.logo.url}
+              src={data.logo.url}
               alt="contentstack logo"
               title="Contentstack"
               className="logo footer-logo"
@@ -58,7 +76,7 @@ const Footer = () => {
         <div className="col-half">
           <nav>
             <ul className="nav-ul">
-              {data.contentstackFooter.navigation.link.map((menu, index) => {
+              {data.navigation.link.map((menu, index) => {
                 return (
                   <li className="footer-nav-li" key={index}>
                     <Link to={menu.href}>{menu.title}</Link>
@@ -70,7 +88,7 @@ const Footer = () => {
         </div>
         <div className="col-quarter social-link">
           <div className="social-nav">
-            {data.contentstackFooter.social.social_share.map(
+            {data.social.social_share.map(
               (social, index) => {
                 return (
                   <a
@@ -88,8 +106,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="copyright">
-        {data.contentstackFooter.copyright
-          ? ReactHtmlParser(data.contentstackFooter.copyright)
+        {data.copyright
+          ? ReactHtmlParser(data.copyright)
           : ""}
       </div>
     </footer>

@@ -49,9 +49,9 @@ Copy the `.env.sample` file to `.env.development` and `.env.production` and upda
 It should end up looking something like:
 
 ```
-CONTENTSTACK_API_KEY='hunter2'
-CONTENTSTACK_DELIVERY_TOKEN='hunter2token'
-CONTENTSTACK_ENVIRONMENT='publishing environment'
-CONTENTSTACK_HOSTED_URL='hosted site url'
-CONTENTSTACK_CDN="optional"
+GATSBY_CONTENTSTACK_API_KEY='hunter2'
+GATSBY_CONTENTSTACK_DELIVERY_TOKEN='hunter2token'
+GATSBY_CONTENTSTACK_ENVIRONMENT='publishing environment'
+GATSBY_CONTENTSTACK_HOSTED_URL='hosted site url'
+GATSBY_CONTENTSTACK_CDN="optional"
 ```
