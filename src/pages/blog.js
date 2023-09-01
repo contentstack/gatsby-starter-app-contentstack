@@ -88,7 +88,7 @@ const Blog = props => {
                 .title_h2
             }
           </h2>
-          {/* <FromBlog data={archived} /> */}
+          <FromBlog data={archived} />
         </div>
       </div>
     </Layout>
