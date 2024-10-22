@@ -9,7 +9,7 @@
     "@uniformdev/optimize-tracker": "^4.0.1",
     "@uniformdev/optimize-tracker-browser": "^4.0.1",
     "@uniformdev/optimize-tracker-contentstack": "^4.0.1",
-    "@uniformdev/optimize-tracker-react": "^4.0.1",
+    "@uniformdev/optimize-tracker-react": "^13.0.0",
     "depcheck": "^1.4.0",
     "dotenv": "^8.2.0",
     "gatsby": "^2.32.4",
