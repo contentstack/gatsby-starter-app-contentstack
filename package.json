@@ -12,7 +12,7 @@
     "@uniformdev/optimize-tracker-react": "^4.0.1",
     "depcheck": "^1.4.0",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.32.4",
+    "gatsby": "^5.14.0",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-offline": "^3.10.1",
     "gatsby-plugin-react-helmet": "^3.4.0",
